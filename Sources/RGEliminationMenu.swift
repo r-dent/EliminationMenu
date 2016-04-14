@@ -8,28 +8,29 @@
 
 import UIKit
 
-class RGEliminationMenu: UIView {
+public class RGEliminationMenu: UIView {
     
-    var buttons: NSMutableArray = []
-    var extended = false;
-    var align: UIControlContentHorizontalAlignment = .Left;
-    var font: UIFont = UIFont.systemFontOfSize(UIFont.systemFontSize());
-    var color: UIColor = UIColor.darkTextColor();
-    var buttonAnimationOffset: CGFloat = 50;
-    var showAnimationDuration: NSTimeInterval = 0.4;
-    var selectAnimationDuration: NSTimeInterval = 0.25;
-    var margin: CGFloat = 0;
-    var buttonHeight: CGFloat = 44.0;
+    public var align = UIControlContentHorizontalAlignment.Left
+    public var font = UIFont.systemFontOfSize(UIFont.systemFontSize());
+    public var color = UIColor.darkTextColor();
+    public var buttonAnimationOffset = CGFloat(50)
+    public var showAnimationDuration = NSTimeInterval(0.4)
+    public var selectAnimationDuration = NSTimeInterval(0.25)
+    public var margin = CGFloat(0)
+    public var buttonHeight = CGFloat(44.0)
     
-    var selectionHandler: (selectedIdtem:NSObject) -> Void = {arg in};
-    var willAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in};
-    var didAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in};
+    public var selectionHandler: (selectedIdtem:NSObject) -> Void = {arg in};
+    public var willAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in};
+    public var didAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in};
+    
+    var buttons = [UIButton]()
+    var extended = false
     
     private var _items: [MenuItem] = [MenuItem]();
     private var _selectedIndex = 0;
     let tagOffset = 10;
     
-    var items: [MenuItem] {
+    public var items: [MenuItem] {
         get {return _items}
         set {
             if _items.count > 0 {
@@ -45,7 +46,7 @@ class RGEliminationMenu: UIView {
                 
                 button.frame = CGRectMake(0, 0, max(button.intrinsicContentSize().width, self.bounds.size.width), self.buttonHeight);
                 
-                buttons.addObject(button);
+                buttons.append(button)
                 self.addSubview(button);
                 
                 self.invalidateIntrinsicContentSize();
@@ -86,7 +87,7 @@ class RGEliminationMenu: UIView {
         button.tag = tag;
         button.titleLabel?.font = self.font;
         button.setTitleColor(color, forState: .Normal);
-        button.addTarget(self, action: "buttonPressed:", forControlEvents: .TouchUpInside);
+        button.addTarget(self, action: #selector(buttonPressed), forControlEvents: .TouchUpInside);
         
         setIconInsets(item.iconInsets, button: button);
         
@@ -107,24 +108,24 @@ class RGEliminationMenu: UIView {
             self.willAnimateHandler(opening: true, animated:animated);
             
             // Add buttons for unselected items.
-            for var titleIndex = 0; titleIndex < _items.count; titleIndex++ {
+            for titleIndex in 0..<_items.count {
                 if titleIndex != _selectedIndex {
                     let menuItem = _items[titleIndex];
                     let button = self.createButton(menuItem, tag: titleIndex + tagOffset);
                     
                     button.frame = CGRectMake(0, buttonY * CGFloat(buttonIndex ), button.intrinsicContentSize().width, self.buttonHeight);
                     
-                    buttons.addObject(button);
+                    buttons.append(button)
                     self.addSubview(button);
                     buttonY = self.buttonHeight + margin;
-                    buttonIndex++;
+                    buttonIndex += 1
                 }
             }
             
             // Set all buttons to the same width and transform them out of viewport.
             let maxWidth = max(self.intrinsicContentSize().width, self.bounds.size.width);
-            for var i = 0; i < buttons.count; i++ {
-                let button = buttons[i] as! UIButton;
+            for i in 0..<buttons.count {
+                let button = buttons[i]
                 button.frame = CGRect(origin: button.frame.origin, size: CGSize(width: maxWidth, height: button.frame.size.height));
                 
                 if button.tag != _selectedIndex + tagOffset {
@@ -147,8 +148,7 @@ class RGEliminationMenu: UIView {
             // Slide in buttons.
             UIView.animateWithDuration(showAnimationDuration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3, options: UIViewAnimationOptions.CurveEaseIn, animations: { () -> Void in
                 for button in self.buttons {
-                    let aButton = button as! UIButton;
-                    aButton.transform = CGAffineTransformIdentity;
+                    button.transform = CGAffineTransformIdentity;
                 }
             }, completion:{(success) -> Void in
                 self.didAnimateHandler(opening: true, animated:animated);
@@ -176,9 +176,7 @@ class RGEliminationMenu: UIView {
             let nonSelectedTransfromation = CGAffineTransformMakeTranslation(0, self.frame.size.height - selectedButton!.frame.origin.y - selectedButton!.frame.size.height);
             
             UIView.animateWithDuration((animated ? selectAnimationDuration : 0), animations: { () -> Void in
-                for object in self.buttons {
-                    let button = object as! UIButton;
-                    
+                for button in self.buttons {
                     if button != selectedButton {
                         button.transform = nonSelectedTransfromation;
                         button.alpha = 0;
@@ -189,11 +187,13 @@ class RGEliminationMenu: UIView {
 
             }, completion: { (success) -> Void in
                 // Remove hidden buttons.
-                for object in self.buttons {
-                    let button = object as! UIButton;
+                for button in self.buttons {
                     if button != selectedButton {
-                        button.removeFromSuperview();
-                        self.buttons.removeObject(button);
+                        button.removeFromSuperview()
+                        
+                        if let index = self.buttons.indexOf(button) {
+                            self.buttons.removeAtIndex(index)
+                        }
                     }
                 }
                 // Correct main button position.
@@ -229,14 +229,14 @@ class RGEliminationMenu: UIView {
     }
     
     func selectEntryWithValue(value: AnyObject!, animated: Bool) {
-        for var i = 0; i < items.count; i++ {
+        for i in 0..<items.count {
             if items[i].value.isEqual(value) {
                 select(i, animated: animated);
             }
         }
     }
     
-    override func intrinsicContentSize() -> CGSize {
+    override public func intrinsicContentSize() -> CGSize {
         if buttons.count > 0 {
             var width: CGFloat = 0;
             var height: CGFloat = -margin;

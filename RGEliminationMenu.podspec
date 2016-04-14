@@ -1,11 +1,18 @@
-Pod::Spec.new do |spec|
-  spec.name         = 'RGEliminationMenu'
-  spec.version      = '0.1.0'
-  spec.license      = 'MIT'
-  spec.summary      = 'An Objective-C client for the Pusher.com service'
-  spec.homepage     = 'https://github.com/r-dent/RGEliminationMenu'
-  spec.author       = 'Roman Gille'
-  spec.source       = { :git => 'https://github.com/r-dent/RGEliminationMenu.git', :tag => "v#{s.version}" }
-  spec.source_files = 'Sources/*.swift'
-  spec.requires_arc = true
+Pod::Spec.new do |s|
+  s.name         = 'RGEliminationMenu'
+  s.version      = '0.1.0'
+
+  s.summary      = 'Some kind of menu that eliminates all values which were not selected.'
+  s.author       = { 'Roman Gille' => 'developer@romangille.com' }
+  s.homepage     = 'https://github.com/r-dent/RGEliminationMenu'
+  s.license      = { :type => 'MIT', :file => 'LICENSE' }
+
+  s.source       = { :git => 'https://github.com/r-dent/RGEliminationMenu.git', :tag => "v#{s.version}" }
+  s.source_files = 'Sources/*.swift'
+
+  s.requires_arc = true
+  s.frameworks = 'UIKit'
+
+  s.platform     = :ios, '8.0'
+  s.ios.deployment_target = '8'
 end

@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MenuItem: NSObject {
-    var title: String = "";
-    var icon: UIImage?;
-    var value: AnyObject!;
-    var iconInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
+public class MenuItem: NSObject {
+    public var title: String = "";
+    public var icon: UIImage?;
+    public var value: AnyObject!;
+    public var iconInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
     
     init(title:String, value:AnyObject!) {
         self.title = title;
