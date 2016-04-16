@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "302488D01CBF811D002343AE"
-               BuildableName = "RGEliminationMenu.app"
-               BlueprintName = "RGEliminationMenu"
-               ReferencedContainer = "container:RGEliminationMenu.xcodeproj">
+               BuildableName = "EliminationMenu.app"
+               BlueprintName = "EliminationMenu"
+               ReferencedContainer = "container:EliminationMenu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "302488D01CBF811D002343AE"
-            BuildableName = "RGEliminationMenu.app"
-            BlueprintName = "RGEliminationMenu"
-            ReferencedContainer = "container:RGEliminationMenu.xcodeproj">
+            BuildableName = "EliminationMenu.app"
+            BlueprintName = "EliminationMenu"
+            ReferencedContainer = "container:EliminationMenu.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "302488D01CBF811D002343AE"
-            BuildableName = "RGEliminationMenu.app"
-            BlueprintName = "RGEliminationMenu"
-            ReferencedContainer = "container:RGEliminationMenu.xcodeproj">
+            BuildableName = "EliminationMenu.app"
+            BlueprintName = "EliminationMenu"
+            ReferencedContainer = "container:EliminationMenu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "302488D01CBF811D002343AE"
-            BuildableName = "RGEliminationMenu.app"
-            BlueprintName = "RGEliminationMenu"
-            ReferencedContainer = "container:RGEliminationMenu.xcodeproj">
+            BuildableName = "EliminationMenu.app"
+            BlueprintName = "EliminationMenu"
+            ReferencedContainer = "container:EliminationMenu.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

@@ -7,23 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		302488D51CBF811D002343AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302488D41CBF811D002343AE /* AppDelegate.swift */; };
-		302488D71CBF811D002343AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302488D61CBF811D002343AE /* ViewController.swift */; };
-		302488DA1CBF811D002343AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302488D81CBF811D002343AE /* Main.storyboard */; };
-		302488DC1CBF811D002343AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302488DB1CBF811D002343AE /* Assets.xcassets */; };
-		302488DF1CBF811D002343AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302488DD1CBF811D002343AE /* LaunchScreen.storyboard */; };
-		302488EC1CBF81C9002343AE /* EliminationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302488EA1CBF81C9002343AE /* EliminationMenu.swift */; };
+		308D72F01CC2851C0031AFCD /* EliminationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D72EF1CC2851C0031AFCD /* EliminationMenu.swift */; };
+		30C53CF41CC2849B00121273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C53CEC1CC2849B00121273 /* AppDelegate.swift */; };
+		30C53CF51CC2849B00121273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C53CED1CC2849B00121273 /* Assets.xcassets */; };
+		30C53CF61CC2849B00121273 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C53CEE1CC2849B00121273 /* LaunchScreen.storyboard */; };
+		30C53CF71CC2849B00121273 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C53CF01CC2849B00121273 /* Main.storyboard */; };
+		30C53CF81CC2849B00121273 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 30C53CF21CC2849B00121273 /* Info.plist */; };
+		30C53CF91CC2849B00121273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C53CF31CC2849B00121273 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		302488D11CBF811D002343AE /* RGEliminationMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RGEliminationMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		302488D41CBF811D002343AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		302488D61CBF811D002343AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		302488D91CBF811D002343AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		302488DB1CBF811D002343AE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		302488DE1CBF811D002343AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		302488E01CBF811D002343AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		302488EA1CBF81C9002343AE /* EliminationMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EliminationMenu.swift; sourceTree = "<group>"; };
+		302488D11CBF811D002343AE /* EliminationMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EliminationMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		308D72EF1CC2851C0031AFCD /* EliminationMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EliminationMenu.swift; sourceTree = "<group>"; };
+		30C53CEC1CC2849B00121273 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		30C53CED1CC2849B00121273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		30C53CEF1CC2849B00121273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		30C53CF11CC2849B00121273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		30C53CF21CC2849B00121273 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		30C53CF31CC2849B00121273 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -40,7 +41,8 @@
 		302488C81CBF811D002343AE = {
 			isa = PBXGroup;
 			children = (
-				302488D31CBF811D002343AE /* RGEliminationMenu */,
+				30C53CEB1CC2849B00121273 /* EliminationMenu */,
+				308D72EE1CC2851C0031AFCD /* Sources */,
 				302488D21CBF811D002343AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,39 +50,38 @@
 		302488D21CBF811D002343AE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				302488D11CBF811D002343AE /* RGEliminationMenu.app */,
+				302488D11CBF811D002343AE /* EliminationMenu.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		302488D31CBF811D002343AE /* RGEliminationMenu */ = {
+		308D72EE1CC2851C0031AFCD /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				302488E91CBF81C9002343AE /* Sources */,
-				302488D41CBF811D002343AE /* AppDelegate.swift */,
-				302488D61CBF811D002343AE /* ViewController.swift */,
-				302488D81CBF811D002343AE /* Main.storyboard */,
-				302488DB1CBF811D002343AE /* Assets.xcassets */,
-				302488DD1CBF811D002343AE /* LaunchScreen.storyboard */,
-				302488E01CBF811D002343AE /* Info.plist */,
-			);
-			path = RGEliminationMenu;
-			sourceTree = "<group>";
-		};
-		302488E91CBF81C9002343AE /* Sources */ = {
-			isa = PBXGroup;
-			children = (
-				302488EA1CBF81C9002343AE /* EliminationMenu.swift */,
+				308D72EF1CC2851C0031AFCD /* EliminationMenu.swift */,
 			);
 			path = Sources;
-			sourceTree = SOURCE_ROOT;
+			sourceTree = "<group>";
+		};
+		30C53CEB1CC2849B00121273 /* EliminationMenu */ = {
+			isa = PBXGroup;
+			children = (
+				30C53CEC1CC2849B00121273 /* AppDelegate.swift */,
+				30C53CF31CC2849B00121273 /* ViewController.swift */,
+				30C53CF01CC2849B00121273 /* Main.storyboard */,
+				30C53CED1CC2849B00121273 /* Assets.xcassets */,
+				30C53CEE1CC2849B00121273 /* LaunchScreen.storyboard */,
+				30C53CF21CC2849B00121273 /* Info.plist */,
+			);
+			path = EliminationMenu;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		302488D01CBF811D002343AE /* RGEliminationMenu */ = {
+		302488D01CBF811D002343AE /* EliminationMenu */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 302488E31CBF811D002343AE /* Build configuration list for PBXNativeTarget "RGEliminationMenu" */;
+			buildConfigurationList = 302488E31CBF811D002343AE /* Build configuration list for PBXNativeTarget "EliminationMenu" */;
 			buildPhases = (
 				302488CD1CBF811D002343AE /* Sources */,
 				302488CE1CBF811D002343AE /* Frameworks */,
@@ -90,9 +91,9 @@
 			);
 			dependencies = (
 			);
-			name = RGEliminationMenu;
+			name = EliminationMenu;
 			productName = RGEliminationMenu;
-			productReference = 302488D11CBF811D002343AE /* RGEliminationMenu.app */;
+			productReference = 302488D11CBF811D002343AE /* EliminationMenu.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -110,7 +111,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 302488CC1CBF811D002343AE /* Build configuration list for PBXProject "RGEliminationMenu" */;
+			buildConfigurationList = 302488CC1CBF811D002343AE /* Build configuration list for PBXProject "EliminationMenu" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -123,7 +124,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				302488D01CBF811D002343AE /* RGEliminationMenu */,
+				302488D01CBF811D002343AE /* EliminationMenu */,
 			);
 		};
 /* End PBXProject section */
@@ -133,9 +134,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				302488DF1CBF811D002343AE /* LaunchScreen.storyboard in Resources */,
-				302488DC1CBF811D002343AE /* Assets.xcassets in Resources */,
-				302488DA1CBF811D002343AE /* Main.storyboard in Resources */,
+				30C53CF81CC2849B00121273 /* Info.plist in Resources */,
+				30C53CF71CC2849B00121273 /* Main.storyboard in Resources */,
+				30C53CF51CC2849B00121273 /* Assets.xcassets in Resources */,
+				30C53CF61CC2849B00121273 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -146,29 +148,29 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				302488D71CBF811D002343AE /* ViewController.swift in Sources */,
-				302488EC1CBF81C9002343AE /* EliminationMenu.swift in Sources */,
-				302488D51CBF811D002343AE /* AppDelegate.swift in Sources */,
+				30C53CF91CC2849B00121273 /* ViewController.swift in Sources */,
+				308D72F01CC2851C0031AFCD /* EliminationMenu.swift in Sources */,
+				30C53CF41CC2849B00121273 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		302488D81CBF811D002343AE /* Main.storyboard */ = {
+		30C53CEE1CC2849B00121273 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				302488D91CBF811D002343AE /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		302488DD1CBF811D002343AE /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				302488DE1CBF811D002343AE /* Base */,
+				30C53CEF1CC2849B00121273 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		30C53CF01CC2849B00121273 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				30C53CF11CC2849B00121273 /* Base */,
+			);
+			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -261,7 +263,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = RGEliminationMenu/Info.plist;
+				INFOPLIST_FILE = EliminationMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rg.RGEliminationMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -272,7 +274,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = RGEliminationMenu/Info.plist;
+				INFOPLIST_FILE = EliminationMenu/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = rg.RGEliminationMenu;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -282,7 +284,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		302488CC1CBF811D002343AE /* Build configuration list for PBXProject "RGEliminationMenu" */ = {
+		302488CC1CBF811D002343AE /* Build configuration list for PBXProject "EliminationMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				302488E11CBF811D002343AE /* Debug */,
@@ -291,7 +293,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		302488E31CBF811D002343AE /* Build configuration list for PBXNativeTarget "RGEliminationMenu" */ = {
+		302488E31CBF811D002343AE /* Build configuration list for PBXNativeTarget "EliminationMenu" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				302488E41CBF811D002343AE /* Debug */,

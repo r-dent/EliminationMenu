@@ -41,7 +41,7 @@ class ViewController: UIViewController {
         ]
         
         rightMenu.selectionHandler = {item in
-            self.infoLabel.text = "Selected item:\n\"\(item.title)\",\n\nThe value is:\n\"\(item.value)\""
+            self.infoLabel.text = "Selected item:\n\"\(item.title)\"\n\nThe value is:\n\"\(item.value)\""
         }
         
         rightMenu.align = .Right
