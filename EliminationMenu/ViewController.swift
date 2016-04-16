@@ -18,31 +18,35 @@ class ViewController: UIViewController {
         
         // Set up the menu created in interface builder.
         
-        eliminationMenu.items = [
-            EliminationMenu.Item(title: "First", value: "SomeValue"),
-            EliminationMenu.Item(title: "Second", value: "SomeOtherValue"),
-            EliminationMenu.Item(title: "Third", value: "This could also be an Image"),
-            EliminationMenu.Item(title: "Fourth", value: "...or a view")
-        ]
+        eliminationMenu.font = UIFont.boldSystemFontOfSize(24)
+        eliminationMenu.color = UIColor.whiteColor()
         
         eliminationMenu.selectionHandler = {item in
             self.infoLabel.text = "Selected item:\n\"\(item.title)\"\n\nThe value is:\n\"\(item.value)\""
         }
         
+        eliminationMenu.items = [
+            EliminationMenu.Item(value: "SomeValue", title: "First"),
+            EliminationMenu.Item(value: "SomeOtherValue", title: "Second"),
+            EliminationMenu.Item(value: "This could also be an Image", title: "Third"),
+            EliminationMenu.Item(value: "...or a view", title: "Fourth")
+        ]
+        
         // Create nemu in code.
         
         let rightMenu = EliminationMenu()
         
-        rightMenu.items = [
-            EliminationMenu.Item(title: "First on the right", value: "SomeValue"),
-            EliminationMenu.Item(title: "Second", value: "SomeOtherValue"),
-            EliminationMenu.Item(title: "Third", value: "This could also be an Image"),
-            EliminationMenu.Item(title: "Fourth", value: "...or some other class")
-        ]
-        
         rightMenu.selectionHandler = {item in
             self.infoLabel.text = "Selected item:\n\"\(item.title)\"\n\nThe value is:\n\"\(item.value)\""
         }
+        
+        rightMenu.items = [
+            EliminationMenu.Item(value: "Layer over layer.", icon: UIImage(named: "fabric")),
+            EliminationMenu.Item(value: "There was this browser...", icon: UIImage(named: "safari")),
+            EliminationMenu.Item(value: "Save to disk.", icon: UIImage(named: "disk")),
+            EliminationMenu.Item(value: "Mic check. One, two...", icon: UIImage(named: "check")),
+            EliminationMenu.Item(value: "To the heart!", icon: UIImage(named: "heart"))
+        ]
         
         rightMenu.align = .Right
         

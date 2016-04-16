@@ -41,7 +41,7 @@ public class EliminationMenu: UIView {
     
     private var _items = [Item]();
     private var _selectedIndex = 0;
-    let tagOffset = 10;
+    private let tagOffset = 10;
     
     public var items: [Item] {
         get {return _items}
@@ -177,7 +177,7 @@ public class EliminationMenu: UIView {
         let menuItem = _items[selectedIndex];
         
         if buttons.count > 1 {
-            let selectionDidChange = mainButton.titleForState(.Normal) != menuItem.title;
+            let selectionDidChange = _selectedIndex != selectedIndex;
             
             if selectionDidChange {
                 self.selectionHandler(selectedIdtem: menuItem);
@@ -266,6 +266,7 @@ public class EliminationMenu: UIView {
         return CGSizeMake(0, 0);
     }
     
+    // MARK: - Class: Item
     
     public class Item {
         public var title: String = "";
@@ -273,15 +274,10 @@ public class EliminationMenu: UIView {
         public var value: AnyObject!;
         public var iconInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
         
-        init(title:String, value:AnyObject!) {
-            self.title = title;
-            self.value = value;
-        }
-        
-        init(title:String, value:AnyObject!, icon:UIImage) {
-            self.title = title;
-            self.value = value;
-            self.icon = icon;
+        init(value:AnyObject, title: String = "", icon: UIImage? = nil) {
+            self.title = title
+            self.value = value
+            self.icon = icon
         }
     }
 
