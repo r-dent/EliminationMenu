@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class RGEliminationMenu: UIView {
+public class EliminationMenu: UIView {
     
     public var align = UIControlContentHorizontalAlignment.Left
     public var font = UIFont.systemFontOfSize(UIFont.systemFontSize());
@@ -19,18 +19,18 @@ public class RGEliminationMenu: UIView {
     public var margin = CGFloat(0)
     public var buttonHeight = CGFloat(44.0)
     
-    public var selectionHandler: (selectedIdtem:RGMenuItem) -> Void = {arg in};
+    public var selectionHandler: (selectedIdtem:Item) -> Void = {arg in};
     public var willAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in};
     public var didAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in};
     
     var buttons = [UIButton]()
     var extended = false
     
-    private var _items = [RGMenuItem]();
+    private var _items = [Item]();
     private var _selectedIndex = 0;
     let tagOffset = 10;
     
-    public var items: [RGMenuItem] {
+    public var items: [Item] {
         get {return _items}
         set {
             if _items.count > 0 {
@@ -78,7 +78,7 @@ public class RGEliminationMenu: UIView {
         return self.viewWithTag(tagOffset + index) as? UIButton;
     }
     
-    func createButton(item:RGMenuItem, tag:Int) -> UIButton {
+    func createButton(item:Item, tag:Int) -> UIButton {
         let button = UIButton();
         
         button.setTitle(item.title, forState: .Normal);
@@ -251,6 +251,25 @@ public class RGEliminationMenu: UIView {
             return CGSizeMake(width, height);
         }
         return CGSizeMake(0, 0);
+    }
+    
+    
+    public class Item {
+        public var title: String = "";
+        public var icon: UIImage?;
+        public var value: AnyObject!;
+        public var iconInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
+        
+        init(title:String, value:AnyObject!) {
+            self.title = title;
+            self.value = value;
+        }
+        
+        init(title:String, value:AnyObject!, icon:UIImage) {
+            self.title = title;
+            self.value = value;
+            self.icon = icon;
+        }
     }
 
     /*

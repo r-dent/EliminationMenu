@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  RGEliminationMenu
+//  EliminationMenu
 //
 //  Created by Roman Gille on 14.04.16.
 //  Copyright © 2016 Roman Gille. All rights reserved.
@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    @IBOutlet weak var eliminationMenu: RGEliminationMenu!
+    @IBOutlet weak var eliminationMenu: EliminationMenu!
     @IBOutlet weak var infoLabel: UILabel!
 
     override func viewDidLoad() {
@@ -19,10 +19,10 @@ class ViewController: UIViewController {
         // Set up the menu created in interface builder.
         
         eliminationMenu.items = [
-            RGMenuItem(title: "First", value: "SomeValue"),
-            RGMenuItem(title: "Second", value: "SomeOtherValue"),
-            RGMenuItem(title: "Third", value: "This could also be an Image"),
-            RGMenuItem(title: "Fourth", value: "...or a view")
+            EliminationMenu.Item(title: "First", value: "SomeValue"),
+            EliminationMenu.Item(title: "Second", value: "SomeOtherValue"),
+            EliminationMenu.Item(title: "Third", value: "This could also be an Image"),
+            EliminationMenu.Item(title: "Fourth", value: "...or a view")
         ]
         
         eliminationMenu.selectionHandler = {item in
@@ -31,13 +31,13 @@ class ViewController: UIViewController {
         
         // Create nemu in code.
         
-        let rightMenu = RGEliminationMenu()
+        let rightMenu = EliminationMenu()
         
         rightMenu.items = [
-            RGMenuItem(title: "First on the right", value: "SomeValue"),
-            RGMenuItem(title: "Second", value: "SomeOtherValue"),
-            RGMenuItem(title: "Third", value: "This could also be an Image"),
-            RGMenuItem(title: "Fourth", value: "...or some other class")
+            EliminationMenu.Item(title: "First on the right", value: "SomeValue"),
+            EliminationMenu.Item(title: "Second", value: "SomeOtherValue"),
+            EliminationMenu.Item(title: "Third", value: "This could also be an Image"),
+            EliminationMenu.Item(title: "Fourth", value: "...or some other class")
         ]
         
         rightMenu.selectionHandler = {item in
