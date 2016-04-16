@@ -19,16 +19,14 @@ class ViewController: UIViewController {
         // Set up the menu created in interface builder.
         
         eliminationMenu.items = [
-            MenuItem(title: "First", value: "SomeValue"),
-            MenuItem(title: "Second", value: "SomeOtherValue"),
-            MenuItem(title: "Third", value: "This could also be an Image"),
-            MenuItem(title: "Fourth", value: "...or a view")
+            RGMenuItem(title: "First", value: "SomeValue"),
+            RGMenuItem(title: "Second", value: "SomeOtherValue"),
+            RGMenuItem(title: "Third", value: "This could also be an Image"),
+            RGMenuItem(title: "Fourth", value: "...or a view")
         ]
         
         eliminationMenu.selectionHandler = {item in
-            let menuItem = item as! MenuItem
-            
-            self.infoLabel.text = "Selected item:\n\"\(menuItem.title)\"\n\nThe value is:\n\"\(menuItem.value)\""
+            self.infoLabel.text = "Selected item:\n\"\(item.title)\"\n\nThe value is:\n\"\(item.value)\""
         }
         
         // Create nemu in code.
@@ -36,16 +34,14 @@ class ViewController: UIViewController {
         let rightMenu = RGEliminationMenu()
         
         rightMenu.items = [
-            MenuItem(title: "First on the right", value: "SomeValue"),
-            MenuItem(title: "Second", value: "SomeOtherValue"),
-            MenuItem(title: "Third", value: "This could also be an Image"),
-            MenuItem(title: "Fourth", value: "...or some other class")
+            RGMenuItem(title: "First on the right", value: "SomeValue"),
+            RGMenuItem(title: "Second", value: "SomeOtherValue"),
+            RGMenuItem(title: "Third", value: "This could also be an Image"),
+            RGMenuItem(title: "Fourth", value: "...or some other class")
         ]
         
         rightMenu.selectionHandler = {item in
-            let menuItem = item as! MenuItem
-            
-            self.infoLabel.text = "Selected item:\n\"\(menuItem.title)\",\n\nThe value is:\n\"\(menuItem.value)\""
+            self.infoLabel.text = "Selected item:\n\"\(item.title)\",\n\nThe value is:\n\"\(item.value)\""
         }
         
         rightMenu.align = .Right

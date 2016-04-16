@@ -13,7 +13,7 @@
 		302488DC1CBF811D002343AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 302488DB1CBF811D002343AE /* Assets.xcassets */; };
 		302488DF1CBF811D002343AE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 302488DD1CBF811D002343AE /* LaunchScreen.storyboard */; };
 		302488EC1CBF81C9002343AE /* RGEliminationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302488EA1CBF81C9002343AE /* RGEliminationMenu.swift */; };
-		302488ED1CBF81C9002343AE /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302488EB1CBF81C9002343AE /* MenuItem.swift */; };
+		302488ED1CBF81C9002343AE /* RGMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 302488EB1CBF81C9002343AE /* RGMenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		302488DE1CBF811D002343AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		302488E01CBF811D002343AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		302488EA1CBF81C9002343AE /* RGEliminationMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGEliminationMenu.swift; sourceTree = "<group>"; };
-		302488EB1CBF81C9002343AE /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		302488EB1CBF81C9002343AE /* RGMenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RGMenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,7 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				302488EA1CBF81C9002343AE /* RGEliminationMenu.swift */,
-				302488EB1CBF81C9002343AE /* MenuItem.swift */,
+				302488EB1CBF81C9002343AE /* RGMenuItem.swift */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
@@ -150,7 +150,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				302488D71CBF811D002343AE /* ViewController.swift in Sources */,
-				302488ED1CBF81C9002343AE /* MenuItem.swift in Sources */,
+				302488ED1CBF81C9002343AE /* RGMenuItem.swift in Sources */,
 				302488EC1CBF81C9002343AE /* RGEliminationMenu.swift in Sources */,
 				302488D51CBF811D002343AE /* AppDelegate.swift in Sources */,
 			);
@@ -302,6 +302,7 @@
 				302488E51CBF811D002343AE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

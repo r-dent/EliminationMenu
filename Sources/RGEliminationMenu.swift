@@ -19,18 +19,18 @@ public class RGEliminationMenu: UIView {
     public var margin = CGFloat(0)
     public var buttonHeight = CGFloat(44.0)
     
-    public var selectionHandler: (selectedIdtem:NSObject) -> Void = {arg in};
+    public var selectionHandler: (selectedIdtem:RGMenuItem) -> Void = {arg in};
     public var willAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in};
     public var didAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in};
     
     var buttons = [UIButton]()
     var extended = false
     
-    private var _items: [MenuItem] = [MenuItem]();
+    private var _items = [RGMenuItem]();
     private var _selectedIndex = 0;
     let tagOffset = 10;
     
-    public var items: [MenuItem] {
+    public var items: [RGMenuItem] {
         get {return _items}
         set {
             if _items.count > 0 {
@@ -78,7 +78,7 @@ public class RGEliminationMenu: UIView {
         return self.viewWithTag(tagOffset + index) as? UIButton;
     }
     
-    func createButton(item:MenuItem, tag:Int) -> UIButton {
+    func createButton(item:RGMenuItem, tag:Int) -> UIButton {
         let button = UIButton();
         
         button.setTitle(item.title, forState: .Normal);
