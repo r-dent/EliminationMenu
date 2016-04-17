@@ -22,18 +22,28 @@
 import UIKit
 
 public class EliminationMenu: UIView {
-    
+    /// The horizontal align of the menu entries. Defaults to .Left
     public var align = UIControlContentHorizontalAlignment.Left
-    public var font = UIFont.systemFontOfSize(UIFont.systemFontSize());
+    /// The font used in the menu entry buttons. Defaults to systemFontSize().
+    public var font = UIFont.systemFontOfSize(UIFont.systemFontSize())
+    /// The color of the text in menu entries. Defaults to darkTextColor().
     public var color = UIColor.darkTextColor();
+    /// The amount of points, the menu entries are offset from the screen before fading tehm in. Defaults to 50.
     public var buttonAnimationOffset = CGFloat(50)
+    /// The duration in seconds, that the show animation will take. Defaults to 0.4.
     public var showAnimationDuration = NSTimeInterval(0.4)
+    /// The duration in seconds, that the selection animation will take. Defaults to 0.25.
     public var selectAnimationDuration = NSTimeInterval(0.25)
+    /// Margin between the entry buttons. Defaults to 0.
     public var margin = CGFloat(0)
+    /// The height of the menu entry buttons. Defaults to 44.
     public var buttonHeight = CGFloat(44.0)
     
-    public var selectionHandler: (selectedIdtem:Item) -> Void = {arg in};
-    public var willAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in};
+    /// A closure to react on the selection of a menu entry. This will not fire when the selected value has not changed.
+    public var selectionHandler: (selectedIdtem:Item) -> Void = {arg in}
+    /// A closure to react on menu opening/closing. This will be called before the animation runs.
+    public var willAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in}
+    /// A closure to react on menu opening/closing. This will be called after the animation has finished.
     public var didAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in};
     
     var buttons = [UIButton]()
@@ -43,6 +53,7 @@ public class EliminationMenu: UIView {
     private var _selectedIndex = 0;
     private let tagOffset = 10;
     
+    /// The entries of the menu. Setting this will reinitialize the menu.
     public var items: [Item] {
         get {return _items}
         set {
@@ -70,6 +81,7 @@ public class EliminationMenu: UIView {
         }
     }
     
+    /// The button for the selected item. This is the one that you see when the menu is closed.
     var mainButton: UIButton {
         get {
             return buttonFor(_selectedIndex)!;
@@ -269,9 +281,13 @@ public class EliminationMenu: UIView {
     // MARK: - Class: Item
     
     public class Item {
-        public var title: String = "";
-        public var icon: UIImage?;
-        public var value: AnyObject!;
+        /// The title that will be shown in the menu.
+        public var title: String = ""
+        /// The icon that will be shown in the menu.
+        public var icon: UIImage?
+        /// The object that you will receive in the selectionHandler.
+        public var value: AnyObject!
+        /// These insets will also set titleInsets and contentInsets of the items entry button.
         public var iconInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0);
         
         init(value:AnyObject, title: String = "", icon: UIImage? = nil) {
