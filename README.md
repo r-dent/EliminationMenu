@@ -2,6 +2,10 @@
 
 Some kind of menu that eliminates all values which were not selected.
 
+<p align="center" >
+![Screenshot](Resources/EliminationMenu.gif)
+<p>
+
 ## Installation
 
 Just drag the EliminationMenu.swift into your project.
@@ -48,3 +52,7 @@ To set up the entries, create an array of `EliminationMenu.Item`s and set it to 
         EliminationMenu.Item(value: UIImage(named: "filename"), title: "Third"), // You can use values of any kind.
         EliminationMenu.Item(value: "...or a view", title: "Fourth")
     ]
+
+## License
+
+`EliminationMenu` is available under the MIT license. See the LICENSE file for more info.
