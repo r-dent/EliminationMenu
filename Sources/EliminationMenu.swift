@@ -22,8 +22,13 @@
 import UIKit
 
 public class EliminationMenu: UIView {
-    /// The horizontal align of the menu entries. Defaults to .Left
-    public var align = UIControlContentHorizontalAlignment.Left
+    
+    public enum HorizontalAlignment {
+        case Left, Right
+    }
+    
+    /// The horizontal align of the menu entries. This also defines from whitch direction the entries will fly in. Defaults to .Left
+    public var horizontalAlign = HorizontalAlignment.Left
     /// The font used in the menu entry buttons. Defaults to systemFontSize().
     public var font = UIFont.systemFontOfSize(UIFont.systemFontSize())
     /// The color of the text in menu entries. Defaults to darkTextColor().
@@ -108,7 +113,7 @@ public class EliminationMenu: UIView {
         
         button.setTitle(item.title, forState: .Normal);
         button.setImage(item.icon, forState: .Normal);
-        button.contentHorizontalAlignment = self.align;
+        button.contentHorizontalAlignment = (horizontalAlign == .Left) ? .Left : .Right
         button.tag = tag;
         button.titleLabel?.font = self.font;
         button.setTitleColor(color, forState: .Normal);
@@ -156,7 +161,7 @@ public class EliminationMenu: UIView {
                 if button.tag != _selectedIndex + tagOffset {
                     let xOffset = (CGFloat(buttons.count) * buttonAnimationOffset) - (buttonAnimationOffset * CGFloat(i));
                     
-                    if (self.align == .Right) {
+                    if (self.horizontalAlign == .Right) {
                         button.transform = CGAffineTransformMakeTranslation(maxWidth + xOffset, 0);
                     }
                     else {

@@ -48,7 +48,7 @@ class ViewController: UIViewController {
             EliminationMenu.Item(value: "To the heart!", icon: UIImage(named: "heart"))
         ]
         
-        rightMenu.align = .Right
+        rightMenu.horizontalAlign = .Right
         
         // Add menu to layout.
         
