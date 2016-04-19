@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var eliminationMenu: EliminationMenu!
+    @IBOutlet weak var topMenu: EliminationMenu!
     @IBOutlet weak var infoLabel: UILabel!
 
     override func viewDidLoad() {
@@ -62,6 +63,26 @@ class ViewController: UIViewController {
         
         view.setNeedsUpdateConstraints()
         view.updateConstraintsIfNeeded()
+        
+        // Set up the top menu created in interface builder.
+        
+        topMenu.font = UIFont.boldSystemFontOfSize(24)
+        topMenu.color = UIColor.whiteColor()
+        topMenu.verticalAlign = .Top
+        topMenu.horizontalAlign = .Right
+        
+        topMenu.selectionHandler = {item in
+            self.infoLabel.text = "Selected item:\n\"\(item.title)\"\n\nThe value is:\n\"\(item.value)\""
+        }
+        
+        topMenu.items = [
+            EliminationMenu.Item(value: "SomeValue", title: "First"),
+            EliminationMenu.Item(value: "SomeOtherValue", title: "Second"),
+            EliminationMenu.Item(value: "This could also be an Image", title: "Third"),
+            EliminationMenu.Item(value: "...or a view", title: "Fourth")
+        ]
+        
+        topMenu.show(false, animated: false)
     }
 
     override func didReceiveMemoryWarning() {

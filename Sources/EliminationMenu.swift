@@ -23,10 +23,16 @@ import UIKit
 
 public class EliminationMenu: UIView {
     
+    public enum VerticalAlignment {
+        case Top, Bottom
+    }
+    
     public enum HorizontalAlignment {
         case Left, Right
     }
     
+    /// The vertical align of the menu entries. Defaults to .Bottom
+    public var verticalAlign = VerticalAlignment.Bottom
     /// The horizontal align of the menu entries. This also defines from whitch direction the entries will fly in. Defaults to .Left
     public var horizontalAlign = HorizontalAlignment.Left
     /// The font used in the menu entry buttons. Defaults to systemFontSize().
@@ -89,7 +95,7 @@ public class EliminationMenu: UIView {
     /// The button for the selected item. This is the one that you see when the menu is closed.
     var mainButton: UIButton {
         get {
-            return buttonFor(_selectedIndex)!
+            return getButton(atIndex: _selectedIndex)!
         }
     }
     
@@ -104,7 +110,7 @@ public class EliminationMenu: UIView {
         }
     }
     
-    func buttonFor(index: Int) -> UIButton? {
+    func getButton(atIndex index: Int) -> UIButton? {
         return self.viewWithTag(tagOffset + index) as? UIButton
     }
     
@@ -133,7 +139,7 @@ public class EliminationMenu: UIView {
     func show(show: Bool, animated: Bool) {
         if show {
             var buttonIndex = 0
-            var buttonY:CGFloat = 0
+            let buttonVerticalSpace = CGFloat(buttonHeight + margin)
             
             self.willAnimateHandler(opening: true, animated:animated)
             
@@ -142,12 +148,16 @@ public class EliminationMenu: UIView {
                 if titleIndex != _selectedIndex {
                     let menuItem = _items[titleIndex]
                     let button = self.createButton(menuItem, tag: titleIndex + tagOffset)
+                    var buttonY = buttonVerticalSpace * CGFloat(buttonIndex)
                     
-                    button.frame = CGRectMake(0, buttonY * CGFloat(buttonIndex ), button.intrinsicContentSize().width, self.buttonHeight)
+                    if verticalAlign == .Top {
+                        buttonY += buttonVerticalSpace
+                    }
+                    
+                    button.frame = CGRectMake(0, buttonY, button.intrinsicContentSize().width, self.buttonHeight)
                     
                     buttons.append(button)
                     self.addSubview(button)
-                    buttonY = self.buttonHeight + margin
                     buttonIndex += 1
                 }
             }
@@ -159,7 +169,11 @@ public class EliminationMenu: UIView {
                 button.frame = CGRect(origin: button.frame.origin, size: CGSize(width: maxWidth, height: button.frame.size.height))
                 
                 if button.tag != _selectedIndex + tagOffset {
-                    let xOffset = (CGFloat(buttons.count) * buttonAnimationOffset) - (buttonAnimationOffset * CGFloat(i))
+                    var xOffset = buttonAnimationOffset * CGFloat(i)
+                    
+                    if verticalAlign == .Bottom {
+                        xOffset = (CGFloat(buttons.count) * buttonAnimationOffset) - xOffset
+                    }
                     
                     if (self.horizontalAlign == .Right) {
                         button.transform = CGAffineTransformMakeTranslation(maxWidth + xOffset, 0)
@@ -170,7 +184,8 @@ public class EliminationMenu: UIView {
                 }
             }
             
-            mainButton.frame = CGRectMake(0, buttonY * CGFloat(buttons.count - 1), maxWidth, self.buttonHeight)
+            let mainButtonY = (verticalAlign == .Bottom) ? buttonVerticalSpace * CGFloat(buttons.count - 1) : 0
+            mainButton.frame = CGRectMake(0, mainButtonY, maxWidth, self.buttonHeight)
             
             // Update content size.
             self.invalidateIntrinsicContentSize()
@@ -201,9 +216,19 @@ public class EliminationMenu: UIView {
             }
             self.willAnimateHandler(opening: false, animated:animated)
             
-            let selectedButton = buttonFor(selectedIndex)
+            
+            let selectedButton = getButton(atIndex: selectedIndex)
             let selectionTargetFrame = CGRect(origin: self.mainButton.frame.origin, size: selectedButton!.frame.size)
-            let nonSelectedTransfromation = CGAffineTransformMakeTranslation(0, self.frame.size.height - selectedButton!.frame.origin.y - selectedButton!.frame.size.height)
+            let nonSelectedAnimationY: CGFloat
+            
+            if verticalAlign == .Bottom {
+                nonSelectedAnimationY = frame.size.height - selectedButton!.frame.origin.y - selectedButton!.frame.size.height
+            }
+            else {
+                nonSelectedAnimationY = -(selectedButton!.frame.origin.y)
+            }
+            
+            let nonSelectedTransfromation = CGAffineTransformMakeTranslation(0, nonSelectedAnimationY)
             
             UIView.animateWithDuration((animated ? selectAnimationDuration : 0), animations: { () -> Void in
                 for button in self.buttons {
