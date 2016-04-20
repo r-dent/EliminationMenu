@@ -22,21 +22,25 @@ You can create an EliminationMenu view in Interface Builder or in code.
     
 To set up the entries, create an array of `EliminationMenu.Item`s and set it to the `items` property of the menu object.
 
-    let menuEntries = [
-        EliminationMenu.Item(value: "SomeValue", title: "First"),
-        EliminationMenu.Item(value: "SomeOtherValue", title: "Second"),
-        EliminationMenu.Item(value: UIImage(named: "filename"), title: "Third"), // You can use values of any kind.
-        EliminationMenu.Item(value: "...or a view", title: "Fourth")
-    ]
-    menu.items = menuEntries
+```swift
+let menuEntries = [
+    EliminationMenu.Item(value: "SomeValue", title: "First"),
+    EliminationMenu.Item(value: "SomeOtherValue", title: "Second"),
+    EliminationMenu.Item(value: UIImage(named: "filename"), title: "Third"), // You can use values of any kind.
+    EliminationMenu.Item(value: "...or a view", title: "Fourth")
+]
+menu.items = menuEntries
+```
     
 ### Create Menu
 
 Use the convenience method to create a menu and add it as a subview to your view controllers view.
 
-	let menu = EliminationMenu.createMenu(withItems: menuEntries, inView: view, aligned: .TopRight, margin: CGPoint(x: 0, y: 20)) { (item) in
-		print("Selected value: \(item.value)")
-    }
+```swift
+let menu = EliminationMenu.createMenu(withItems: menuEntries, inView: view, aligned: .TopRight, margin: CGPoint(x: 0, y: 20)) { (item) in
+	print("Selected value: \(item.value)")
+}
+```
 
 If you want to use Interface Builder, just add a `UIView` and pin 2 of its edges (vertical and horizontal). Set `EliminationMenu` as the views class. Also add a width and a height constraint to supress warnings. Enable "_Remove at build time_" on the size constraints. The menu will get an intrinsic size at runtime.
 
@@ -47,11 +51,13 @@ See the [example code](EliminationMenu/ViewController.swift) for a better insigh
 ### Customize
 
 You can customize the properties of your menu like this:
-	
-	menu.font = UIFont.boldSystemFontOfSize(24)
-    menu.color = UIColor.whiteColor()
-    
-    menu.setup()
+
+```swift
+menu.font = UIFont.boldSystemFontOfSize(24)
+menu.color = UIColor.whiteColor()
+
+menu.setup()
+``
     
 Be shure to call `menu.setup()` to apply your changes. See the [documentation](http://cocoadocs.org/docsets/EliminationMenu) for more ways to customize.
 
