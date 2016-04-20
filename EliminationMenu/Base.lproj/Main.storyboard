@@ -27,35 +27,24 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oay-6p-3dA">
-                                <rect key="frame" x="20" y="44" width="560" height="21"/>
+                                <rect key="frame" x="20" y="290" width="560" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dOo-Na-xX7" customClass="EliminationMenu" customModule="EliminationMenu" customModuleProvider="target">
-                                <rect key="frame" x="480" y="28" width="100" height="50"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="50" placeholder="YES" id="fX7-5p-g7e"/>
-                                    <constraint firstAttribute="width" constant="100" placeholder="YES" id="fhC-dC-VpO"/>
-                                </constraints>
-                            </view>
                         </subviews>
                         <color key="backgroundColor" red="0.22352941176470587" green="0.23921568627450979" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstItem="oay-6p-3dA" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="24" id="8Eh-Mh-mwP"/>
-                            <constraint firstItem="dOo-Na-xX7" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="9hb-Pq-LVN"/>
+                            <constraint firstItem="oay-6p-3dA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b1L-qJ-NYD"/>
                             <constraint firstItem="oay-6p-3dA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ejv-An-AKR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oay-6p-3dA" secondAttribute="trailing" id="f0D-Vf-1Hi"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9mK-aL-GbI" secondAttribute="bottom" constant="20" id="gRS-6Y-E2x"/>
                             <constraint firstItem="9mK-aL-GbI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="s0H-dK-5YI"/>
-                            <constraint firstItem="dOo-Na-xX7" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="uDR-go-bLY"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="eliminationMenu" destination="9mK-aL-GbI" id="ln2-ct-Zhb"/>
                         <outlet property="infoLabel" destination="oay-6p-3dA" id="ikf-Lt-GYF"/>
-                        <outlet property="topMenu" destination="dOo-Na-xX7" id="JHH-t6-JaL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

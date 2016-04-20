@@ -23,18 +23,15 @@ import UIKit
 
 public class EliminationMenu: UIView {
     
-    public enum VerticalAlignment {
-        case Top, Bottom
+    public enum Alignment {
+        case TopLeft, TopRight, BottomLeft, BottomRight
     }
     
-    public enum HorizontalAlignment {
-        case Left, Right
-    }
+    public typealias SelectionHandler = (selectedIdtem:Item) -> Void
+    public typealias AnimationHandler = (opening:Bool, animated:Bool) -> Void
     
-    /// The vertical align of the menu entries. Defaults to .Bottom
-    public var verticalAlign = VerticalAlignment.Bottom
-    /// The horizontal align of the menu entries. This also defines from whitch direction the entries will fly in. Defaults to .Left
-    public var horizontalAlign = HorizontalAlignment.Left
+    /// The horizontal alignment of the menu. This also defines from whitch direction the entries will fly in. Defaults to .BottomLeft
+    public var align = Alignment.BottomLeft
     /// The font used in the menu entry buttons. Defaults to systemFontSize().
     public var font = UIFont.systemFontOfSize(UIFont.systemFontSize())
     /// The color of the text in menu entries. Defaults to darkTextColor().
@@ -51,44 +48,36 @@ public class EliminationMenu: UIView {
     public var buttonHeight = CGFloat(44.0)
     
     /// A closure to react on the selection of a menu entry. This will not fire when the selected value has not changed.
-    public var selectionHandler: (selectedIdtem:Item) -> Void = {arg in}
+    public var selectionHandler: SelectionHandler?
     /// A closure to react on menu opening/closing. This will be called before the animation runs.
-    public var willAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in}
+    public var willAnimateHandler: AnimationHandler?
     /// A closure to react on menu opening/closing. This will be called after the animation has finished.
-    public var didAnimateHandler: (opening:Bool, animated:Bool) -> Void = {arg in}
+    public var didAnimateHandler: AnimationHandler?
     
     var buttons = [UIButton]()
-    var extended = false
     
     private var _items = [Item]()
     private var _selectedIndex = 0
     private let tagOffset = 10
+
+    private var isLeftAligned: Bool {
+        get {
+            return (align == .BottomLeft) || (align == .TopLeft)
+        }
+    }
+
+    private var isBottomAligned: Bool {
+        get {
+            return (align == .BottomLeft) || (align == .BottomRight)
+        }
+    }
     
     /// The entries of the menu. Setting this will reinitialize the menu.
     public var items: [Item] {
         get {return _items}
         set {
-            if _items.count > 0 {
-                for subview in self.subviews {
-                    subview.removeFromSuperview()
-                }
-            }
-            
-            // Create first button.
-            if buttons.count == 0 {
-                let menuItem = newValue[0]
-                let button = self.createButton(menuItem, tag: tagOffset)
-                
-                button.frame = CGRectMake(0, 0, max(button.intrinsicContentSize().width, self.bounds.size.width), self.buttonHeight)
-                
-                buttons.append(button)
-                self.addSubview(button)
-                
-                self.invalidateIntrinsicContentSize()
-            }
-            
             _items = newValue
-            _selectedIndex = 0
+            setup()
         }
     }
     
@@ -97,6 +86,73 @@ public class EliminationMenu: UIView {
         get {
             return getButton(atIndex: _selectedIndex)!
         }
+    }
+    
+    public class func createMenu(withItems items: [Item], inView view: UIView, aligned: Alignment, margin: CGPoint = CGPoint(x: 0, y: 0), selection: SelectionHandler? = nil) -> EliminationMenu {
+        let menu = EliminationMenu()
+        menu.selectionHandler = selection
+        menu.align = aligned
+        
+        menu.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(menu)
+        
+        if menu.isLeftAligned {
+            view.addConstraint(NSLayoutConstraint(
+                item: view, attribute: .LeftMargin, relatedBy: .Equal, toItem: menu, attribute: .Left, multiplier: 1, constant: margin.x)
+            )
+        }
+        else {
+            view.addConstraint(NSLayoutConstraint(
+                item: view, attribute: .RightMargin, relatedBy: .Equal, toItem: menu, attribute: .Right, multiplier: 1, constant: margin.x)
+            )
+        }
+        
+        if menu.isBottomAligned {
+            view.addConstraint(NSLayoutConstraint(
+                item: view, attribute: .BottomMargin, relatedBy: .Equal, toItem: menu, attribute: .Bottom, multiplier: 1, constant: margin.y)
+            )
+        }
+        else {
+            view.addConstraint(NSLayoutConstraint(
+                item: view, attribute: .TopMargin, relatedBy: .Equal, toItem: menu, attribute: .Top, multiplier: 1, constant: -margin.y)
+            )
+        }
+        
+        menu.items = items
+        
+        return menu
+    }
+    
+    /**
+        Initializes the menu interface. Call this when you changed layout properties, to apply them.
+    */
+    public func setup(withSelectedIndex index: Int = 0) {
+        // Clear existing buttons.
+        if _items.count > 0 {
+            for subview in self.subviews {
+                subview.removeFromSuperview()
+            }
+            buttons = []
+        }
+        
+        guard _items.count > 0 else {return}
+        
+        let safeIndex = (index < _items.count) ? index : 0
+        
+        // Create first button.
+        if buttons.count == 0 {
+            let menuItem = _items[safeIndex]
+            let button = self.createButton(menuItem, tag: tagOffset)
+            
+            button.frame = CGRectMake(0, 0, max(button.intrinsicContentSize().width, self.bounds.size.width), self.buttonHeight)
+            
+            buttons.append(button)
+            self.addSubview(button)
+            
+            self.invalidateIntrinsicContentSize()
+        }
+        
+        _selectedIndex = safeIndex
     }
     
     func buttonPressed(sender: UIView) {
@@ -119,7 +175,7 @@ public class EliminationMenu: UIView {
         
         button.setTitle(item.title, forState: .Normal)
         button.setImage(item.icon, forState: .Normal)
-        button.contentHorizontalAlignment = (horizontalAlign == .Left) ? .Left : .Right
+        button.contentHorizontalAlignment = (isLeftAligned) ? .Left : .Right
         button.tag = tag
         button.titleLabel?.font = self.font
         button.setTitleColor(color, forState: .Normal)
@@ -141,7 +197,7 @@ public class EliminationMenu: UIView {
             var buttonIndex = 0
             let buttonVerticalSpace = CGFloat(buttonHeight + margin)
             
-            self.willAnimateHandler(opening: true, animated:animated)
+            willAnimateHandler?(opening: true, animated:animated)
             
             // Add buttons for unselected items.
             for titleIndex in 0..<_items.count {
@@ -150,7 +206,7 @@ public class EliminationMenu: UIView {
                     let button = self.createButton(menuItem, tag: titleIndex + tagOffset)
                     var buttonY = buttonVerticalSpace * CGFloat(buttonIndex)
                     
-                    if verticalAlign == .Top {
+                    if !isBottomAligned {
                         buttonY += buttonVerticalSpace
                     }
                     
@@ -171,20 +227,20 @@ public class EliminationMenu: UIView {
                 if button.tag != _selectedIndex + tagOffset {
                     var xOffset = buttonAnimationOffset * CGFloat(i)
                     
-                    if verticalAlign == .Bottom {
+                    if isBottomAligned {
                         xOffset = (CGFloat(buttons.count) * buttonAnimationOffset) - xOffset
                     }
                     
-                    if (self.horizontalAlign == .Right) {
-                        button.transform = CGAffineTransformMakeTranslation(maxWidth + xOffset, 0)
+                    if isLeftAligned {
+                        button.transform = CGAffineTransformMakeTranslation(-xOffset, 0)
                     }
                     else {
-                        button.transform = CGAffineTransformMakeTranslation(-xOffset, 0)
+                        button.transform = CGAffineTransformMakeTranslation(maxWidth + xOffset, 0)
                     }
                 }
             }
             
-            let mainButtonY = (verticalAlign == .Bottom) ? buttonVerticalSpace * CGFloat(buttons.count - 1) : 0
+            let mainButtonY = isBottomAligned ? buttonVerticalSpace * CGFloat(buttons.count - 1) : 0
             mainButton.frame = CGRectMake(0, mainButtonY, maxWidth, self.buttonHeight)
             
             // Update content size.
@@ -196,7 +252,7 @@ public class EliminationMenu: UIView {
                     button.transform = CGAffineTransformIdentity
                 }
             }, completion:{(success) -> Void in
-                self.didAnimateHandler(opening: true, animated:animated)
+                self.didAnimateHandler?(opening: true, animated:animated)
             })
         }
         else {
@@ -212,16 +268,16 @@ public class EliminationMenu: UIView {
             let selectionDidChange = _selectedIndex != selectedIndex
             
             if selectionDidChange {
-                self.selectionHandler(selectedIdtem: menuItem)
+                selectionHandler?(selectedIdtem: menuItem)
             }
-            self.willAnimateHandler(opening: false, animated:animated)
+            willAnimateHandler?(opening: false, animated:animated)
             
             
             let selectedButton = getButton(atIndex: selectedIndex)
             let selectionTargetFrame = CGRect(origin: self.mainButton.frame.origin, size: selectedButton!.frame.size)
             let nonSelectedAnimationY: CGFloat
             
-            if verticalAlign == .Bottom {
+            if isBottomAligned {
                 nonSelectedAnimationY = frame.size.height - selectedButton!.frame.origin.y - selectedButton!.frame.size.height
             }
             else {
@@ -260,12 +316,12 @@ public class EliminationMenu: UIView {
                 self._selectedIndex = selectedIndex
                 self.invalidateIntrinsicContentSize()
                 
-                self.didAnimateHandler(opening: true, animated:animated)
+                self.didAnimateHandler?(opening: true, animated:animated)
             })
         }
         else {
-            selectionHandler(selectedIdtem: menuItem)
-            self.willAnimateHandler(opening: false, animated:animated)
+            selectionHandler?(selectedIdtem: menuItem)
+            willAnimateHandler?(opening: false, animated:animated)
             
             mainButton.setTitle(menuItem.title, forState: .Normal)
             mainButton.setImage(menuItem.icon, forState: .Normal)
@@ -279,7 +335,7 @@ public class EliminationMenu: UIView {
             mainButton.tag = selectedIndex + tagOffset
             _selectedIndex = selectedIndex
             
-            self.didAnimateHandler(opening: true, animated:animated)
+            didAnimateHandler?(opening: true, animated:animated)
         }
     }
     
@@ -310,6 +366,9 @@ public class EliminationMenu: UIView {
     
     // MARK: - Class: Item
     
+    /**
+        An item representing a menu entry in EliminationMenu.
+    */
     public class Item {
         /// The title that will be shown in the menu.
         public var title: String = ""
