@@ -57,7 +57,7 @@ menu.font = UIFont.boldSystemFontOfSize(24)
 menu.color = UIColor.whiteColor()
 
 menu.setup()
-``
+```
     
 Be shure to call `menu.setup()` to apply your changes. See the [documentation](http://cocoadocs.org/docsets/EliminationMenu) for more ways to customize.
 
