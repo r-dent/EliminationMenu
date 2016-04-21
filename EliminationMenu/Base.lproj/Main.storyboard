@@ -35,11 +35,11 @@
                         </subviews>
                         <color key="backgroundColor" red="0.22352941176470587" green="0.23921568627450979" blue="0.25882352941176467" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="9mK-aL-GbI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="20" id="7ie-2o-sKg"/>
                             <constraint firstItem="oay-6p-3dA" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="b1L-qJ-NYD"/>
                             <constraint firstItem="oay-6p-3dA" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="ejv-An-AKR"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oay-6p-3dA" secondAttribute="trailing" id="f0D-Vf-1Hi"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="9mK-aL-GbI" secondAttribute="bottom" constant="20" id="gRS-6Y-E2x"/>
-                            <constraint firstItem="9mK-aL-GbI" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="s0H-dK-5YI"/>
                         </constraints>
                     </view>
                     <connections>

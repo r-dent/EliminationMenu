@@ -46,7 +46,7 @@ class ViewController: UIViewController {
             EliminationMenu.Item(value: UIColor.greenColor(), title: "Green")
         ]
         
-        let topRightMenu = EliminationMenu.createMenu(withItems: topRightMenuItems, inView: view, aligned: .TopRight, margin: CGPoint(x: 0, y: 20)) { (item) in
+        let topRightMenu = EliminationMenu.createMenu(withItems: topRightMenuItems, inView: view, aligned: .TopRight, margin: CGPoint(x: 20, y: 20)) { (item) in
             // Animate the backgroundColor of the view.
             if let color = item.value as? UIColor {
                 UIView.animateWithDuration(0.5, animations: {
@@ -88,8 +88,8 @@ class ViewController: UIViewController {
         view.addSubview(rightMenu)
         
         view.addConstraints([
-            NSLayoutConstraint(item: view, attribute: .RightMargin, relatedBy: .Equal, toItem: rightMenu, attribute: .Right, multiplier: 1, constant: 0),
-            NSLayoutConstraint(item: view, attribute: .BottomMargin, relatedBy: .Equal, toItem: rightMenu, attribute: .Bottom, multiplier: 1, constant: 20)
+            NSLayoutConstraint(item: view, attribute: .Right, relatedBy: .Equal, toItem: rightMenu, attribute: .Right, multiplier: 1, constant: 20),
+            NSLayoutConstraint(item: view, attribute: .Bottom, relatedBy: .Equal, toItem: rightMenu, attribute: .Bottom, multiplier: 1, constant: 20)
             ])
     }
 

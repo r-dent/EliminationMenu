@@ -98,23 +98,23 @@ public class EliminationMenu: UIView {
         
         if menu.isLeftAligned {
             view.addConstraint(NSLayoutConstraint(
-                item: view, attribute: .LeftMargin, relatedBy: .Equal, toItem: menu, attribute: .Left, multiplier: 1, constant: margin.x)
+                item: view, attribute: .Left, relatedBy: .Equal, toItem: menu, attribute: .Left, multiplier: 1, constant: margin.x)
             )
         }
         else {
             view.addConstraint(NSLayoutConstraint(
-                item: view, attribute: .RightMargin, relatedBy: .Equal, toItem: menu, attribute: .Right, multiplier: 1, constant: margin.x)
+                item: view, attribute: .Right, relatedBy: .Equal, toItem: menu, attribute: .Right, multiplier: 1, constant: margin.x)
             )
         }
         
         if menu.isBottomAligned {
             view.addConstraint(NSLayoutConstraint(
-                item: view, attribute: .BottomMargin, relatedBy: .Equal, toItem: menu, attribute: .Bottom, multiplier: 1, constant: margin.y)
+                item: view, attribute: .Bottom, relatedBy: .Equal, toItem: menu, attribute: .Bottom, multiplier: 1, constant: margin.y)
             )
         }
         else {
             view.addConstraint(NSLayoutConstraint(
-                item: view, attribute: .TopMargin, relatedBy: .Equal, toItem: menu, attribute: .Top, multiplier: 1, constant: -margin.y)
+                item: view, attribute: .Top, relatedBy: .Equal, toItem: menu, attribute: .Top, multiplier: 1, constant: -margin.y)
             )
         }
         
