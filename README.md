@@ -1,4 +1,7 @@
 # EliminationMenu
+[![CocoaPods](https://img.shields.io/cocoapods/v/EliminationMenu.svg)](http://cocoadocs.org/docsets/EliminationMenu)
+[![Platform](https://img.shields.io/cocoapods/p/EliminationMenu.svg)](http://cocoadocs.org/docsets/EliminationMenu)
+[![CocoaPods](https://img.shields.io/cocoapods/l/EliminationMenu.svg)](LICENSE)
 
 Some kind of menu that eliminates all values which were not selected.
 
@@ -63,4 +66,4 @@ Be shure to call `menu.setup()` to apply your changes. See the [documentation](h
 
 ## License
 
-`EliminationMenu` is available under the MIT license. See the LICENSE file for more info.
+`EliminationMenu` is available under the MIT license. See the [LICENSE](LICENSE) file for more info.
