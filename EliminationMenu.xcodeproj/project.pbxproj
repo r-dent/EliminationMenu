@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		308D72F01CC2851C0031AFCD /* EliminationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 308D72EF1CC2851C0031AFCD /* EliminationMenu.swift */; };
+		30B2D6C21D79E74F00C54A61 /* EliminationMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2D6C11D79E74F00C54A61 /* EliminationMenuTests.swift */; };
 		30C53CF41CC2849B00121273 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C53CEC1CC2849B00121273 /* AppDelegate.swift */; };
 		30C53CF51CC2849B00121273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 30C53CED1CC2849B00121273 /* Assets.xcassets */; };
 		30C53CF61CC2849B00121273 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 30C53CEE1CC2849B00121273 /* LaunchScreen.storyboard */; };
@@ -16,9 +17,22 @@
 		30C53CF91CC2849B00121273 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30C53CF31CC2849B00121273 /* ViewController.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		30B2D6C41D79E74F00C54A61 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 302488C91CBF811D002343AE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 302488D01CBF811D002343AE;
+			remoteInfo = EliminationMenu;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		302488D11CBF811D002343AE /* EliminationMenu.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EliminationMenu.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		308D72EF1CC2851C0031AFCD /* EliminationMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EliminationMenu.swift; sourceTree = "<group>"; };
+		30B2D6BF1D79E74F00C54A61 /* EliminationMenuTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EliminationMenuTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		30B2D6C11D79E74F00C54A61 /* EliminationMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EliminationMenuTests.swift; sourceTree = "<group>"; };
+		30B2D6C31D79E74F00C54A61 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		30C53CEC1CC2849B00121273 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		30C53CED1CC2849B00121273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		30C53CEF1CC2849B00121273 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +49,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30B2D6BC1D79E74F00C54A61 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -43,6 +64,7 @@
 			children = (
 				30C53CEB1CC2849B00121273 /* EliminationMenu */,
 				308D72EE1CC2851C0031AFCD /* Sources */,
+				30B2D6C01D79E74F00C54A61 /* EliminationMenuTests */,
 				302488D21CBF811D002343AE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -51,6 +73,7 @@
 			isa = PBXGroup;
 			children = (
 				302488D11CBF811D002343AE /* EliminationMenu.app */,
+				30B2D6BF1D79E74F00C54A61 /* EliminationMenuTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -61,6 +84,15 @@
 				308D72EF1CC2851C0031AFCD /* EliminationMenu.swift */,
 			);
 			path = Sources;
+			sourceTree = "<group>";
+		};
+		30B2D6C01D79E74F00C54A61 /* EliminationMenuTests */ = {
+			isa = PBXGroup;
+			children = (
+				30B2D6C11D79E74F00C54A61 /* EliminationMenuTests.swift */,
+				30B2D6C31D79E74F00C54A61 /* Info.plist */,
+			);
+			path = EliminationMenuTests;
 			sourceTree = "<group>";
 		};
 		30C53CEB1CC2849B00121273 /* EliminationMenu */ = {
@@ -96,6 +128,24 @@
 			productReference = 302488D11CBF811D002343AE /* EliminationMenu.app */;
 			productType = "com.apple.product-type.application";
 		};
+		30B2D6BE1D79E74F00C54A61 /* EliminationMenuTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 30B2D6C81D79E74F00C54A61 /* Build configuration list for PBXNativeTarget "EliminationMenuTests" */;
+			buildPhases = (
+				30B2D6BB1D79E74F00C54A61 /* Sources */,
+				30B2D6BC1D79E74F00C54A61 /* Frameworks */,
+				30B2D6BD1D79E74F00C54A61 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				30B2D6C51D79E74F00C54A61 /* PBXTargetDependency */,
+			);
+			name = EliminationMenuTests;
+			productName = EliminationMenuTests;
+			productReference = 30B2D6BF1D79E74F00C54A61 /* EliminationMenuTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -108,6 +158,10 @@
 				TargetAttributes = {
 					302488D01CBF811D002343AE = {
 						CreatedOnToolsVersion = 7.3;
+					};
+					30B2D6BE1D79E74F00C54A61 = {
+						CreatedOnToolsVersion = 7.3.1;
+						TestTargetID = 302488D01CBF811D002343AE;
 					};
 				};
 			};
@@ -125,6 +179,7 @@
 			projectRoot = "";
 			targets = (
 				302488D01CBF811D002343AE /* EliminationMenu */,
+				30B2D6BE1D79E74F00C54A61 /* EliminationMenuTests */,
 			);
 		};
 /* End PBXProject section */
@@ -141,6 +196,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30B2D6BD1D79E74F00C54A61 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -154,7 +216,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		30B2D6BB1D79E74F00C54A61 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				30B2D6C21D79E74F00C54A61 /* EliminationMenuTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		30B2D6C51D79E74F00C54A61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 302488D01CBF811D002343AE /* EliminationMenu */;
+			targetProxy = 30B2D6C41D79E74F00C54A61 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		30C53CEE1CC2849B00121273 /* LaunchScreen.storyboard */ = {
@@ -281,6 +359,32 @@
 			};
 			name = Release;
 		};
+		30B2D6C61D79E74F00C54A61 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EliminationMenuTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = rg.EliminationMenuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EliminationMenu.app/EliminationMenu";
+			};
+			name = Debug;
+		};
+		30B2D6C71D79E74F00C54A61 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = EliminationMenuTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = rg.EliminationMenuTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/EliminationMenu.app/EliminationMenu";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -301,6 +405,14 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
+		};
+		30B2D6C81D79E74F00C54A61 /* Build configuration list for PBXNativeTarget "EliminationMenuTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				30B2D6C61D79E74F00C54A61 /* Debug */,
+				30B2D6C71D79E74F00C54A61 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};
