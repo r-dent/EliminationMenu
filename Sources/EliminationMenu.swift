@@ -98,7 +98,7 @@ public class EliminationMenu: UIView {
         
         if menu.isLeftAligned {
             view.addConstraint(NSLayoutConstraint(
-                item: view, attribute: .Left, relatedBy: .Equal, toItem: menu, attribute: .Left, multiplier: 1, constant: margin.x)
+                item: menu, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: margin.x)
             )
         }
         else {
