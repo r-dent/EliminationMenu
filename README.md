@@ -2,6 +2,7 @@
 [![CocoaPods](https://img.shields.io/cocoapods/v/EliminationMenu.svg)](http://cocoadocs.org/docsets/EliminationMenu)
 [![Platform](https://img.shields.io/cocoapods/p/EliminationMenu.svg)](http://cocoadocs.org/docsets/EliminationMenu)
 [![CocoaPods](https://img.shields.io/cocoapods/l/EliminationMenu.svg)](LICENSE)
+[![Travis](https://img.shields.io/travis/r-dent/EliminationMenu.svg)](https://travis-ci.org/r-dent/EliminationMenu)
 
 Some kind of menu that eliminates all values which were not selected.
 
