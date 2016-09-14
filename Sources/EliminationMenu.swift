@@ -98,23 +98,23 @@ public class EliminationMenu: UIView {
         
         if menu.isLeftAligned {
             view.addConstraint(NSLayoutConstraint(
-                item: menu, attribute: .Left, relatedBy: .Equal, toItem: view, attribute: .Left, multiplier: 1, constant: margin.x)
+                item: view, attribute: .LeftMargin, relatedBy: .Equal, toItem: menu, attribute: .Left, multiplier: 1, constant: margin.x)
             )
         }
         else {
             view.addConstraint(NSLayoutConstraint(
-                item: view, attribute: .Right, relatedBy: .Equal, toItem: menu, attribute: .Right, multiplier: 1, constant: margin.x)
+                item: view, attribute: .RightMargin, relatedBy: .Equal, toItem: menu, attribute: .Right, multiplier: 1, constant: margin.x)
             )
         }
         
         if menu.isBottomAligned {
             view.addConstraint(NSLayoutConstraint(
-                item: view, attribute: .Bottom, relatedBy: .Equal, toItem: menu, attribute: .Bottom, multiplier: 1, constant: margin.y)
+                item: view, attribute: .BottomMargin, relatedBy: .Equal, toItem: menu, attribute: .Bottom, multiplier: 1, constant: margin.y)
             )
         }
         else {
             view.addConstraint(NSLayoutConstraint(
-                item: view, attribute: .Top, relatedBy: .Equal, toItem: menu, attribute: .Top, multiplier: 1, constant: -margin.y)
+                item: view, attribute: .TopMargin, relatedBy: .Equal, toItem: menu, attribute: .Top, multiplier: 1, constant: -margin.y)
             )
         }
         
@@ -371,7 +371,7 @@ public class EliminationMenu: UIView {
     */
     public class Item {
         /// The title that will be shown in the menu.
-        public var title: String = ""
+        public var title: String? = ""
         /// The icon that will be shown in the menu.
         public var icon: UIImage?
         /// The object that you will receive in the selectionHandler.
@@ -379,7 +379,7 @@ public class EliminationMenu: UIView {
         /// These insets will also set titleInsets and contentInsets of the items entry button.
         public var iconInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
-        init(value:AnyObject, title: String = "", icon: UIImage? = nil) {
+        public init(value value:AnyObject, title: String = "", icon: UIImage? = nil) {
             self.title = title
             self.value = value
             self.icon = icon
