@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>RGEliminationMenu.xcscheme_^#shared#^_</key>
+		<key>EliminationMenu.xcscheme_^#shared#^_</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -13,6 +13,11 @@
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>302488D01CBF811D002343AE</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>30B2D6BE1D79E74F00C54A61</key>
 		<dict>
 			<key>primary</key>
 			<true/>
