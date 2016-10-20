@@ -32,9 +32,9 @@ class EliminationMenuTests: XCTestCase {
         
         let menuItems = [
             EliminationMenu.Item(value: UIColor(red: 57/255, green: 61/255, blue: 66/255, alpha: 1) , title: "Gray"),
-            EliminationMenu.Item(value: UIColor.blueColor(), title: "Blue"),
-            EliminationMenu.Item(value: UIColor.redColor(), title: "Red"),
-            EliminationMenu.Item(value: UIColor.greenColor(), title: "Green")
+            EliminationMenu.Item(value: UIColor.blue, title: "Blue"),
+            EliminationMenu.Item(value: UIColor.red, title: "Red"),
+            EliminationMenu.Item(value: UIColor.green, title: "Green")
         ]
         
         let margin = CGPoint(x: 12, y: 24)
@@ -42,7 +42,7 @@ class EliminationMenuTests: XCTestCase {
         let menu = EliminationMenu.createMenu(
             withItems: menuItems,
             inView: view,
-            aligned: .TopLeft,
+            aligned: .topLeft,
             margin: margin,
             selection: nil
         )

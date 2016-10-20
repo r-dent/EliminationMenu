@@ -20,8 +20,8 @@ class ViewController: UIViewController {
             Set up the menu created in interface builder.
         */
         
-        eliminationMenu.font = UIFont.boldSystemFontOfSize(24)
-        eliminationMenu.color = UIColor.whiteColor()
+        eliminationMenu.font = UIFont.boldSystemFont(ofSize: 24)
+        eliminationMenu.color = UIColor.white
         
         eliminationMenu.selectionHandler = {item in
             self.infoLabel.text = "Selected item:\n\"\(item.title)\"\n\nThe value is:\n\"\(item.value)\""
@@ -33,7 +33,7 @@ class ViewController: UIViewController {
             EliminationMenu.Item(value: "This could also be an Image", title: "Third"),
             EliminationMenu.Item(value: "...or a view", title: "Fourth")
         ]
-        
+      
         /**
             Create menu in code.
             Using the convenience function.
@@ -41,23 +41,23 @@ class ViewController: UIViewController {
         
         let topRightMenuItems = [
             EliminationMenu.Item(value: UIColor(red: 57/255, green: 61/255, blue: 66/255, alpha: 1) , title: "Gray"),
-            EliminationMenu.Item(value: UIColor.blueColor(), title: "Blue"),
-            EliminationMenu.Item(value: UIColor.redColor(), title: "Red"),
-            EliminationMenu.Item(value: UIColor.greenColor(), title: "Green")
+            EliminationMenu.Item(value: UIColor.blue, title: "Blue"),
+            EliminationMenu.Item(value: UIColor.red, title: "Red"),
+            EliminationMenu.Item(value: UIColor.green, title: "Green")
         ]
-        
-        let topRightMenu = EliminationMenu.createMenu(withItems: topRightMenuItems, inView: view, aligned: .TopRight, margin: CGPoint(x: 20, y: 20)) { (item) in
+      
+        let topRightMenu = EliminationMenu.createMenu(withItems: topRightMenuItems, inView: view, aligned: .topRight, margin: CGPoint(x: 20, y: 20)) { (item) in
             // Animate the backgroundColor of the view.
             if let color = item.value as? UIColor {
-                UIView.animateWithDuration(0.5, animations: {
+                UIView.animate(withDuration: 0.5, animations: {
                     self.view.backgroundColor = color
                 })
             }
         }
         
         // A little customization.
-        topRightMenu.font = UIFont.boldSystemFontOfSize(24)
-        topRightMenu.color = UIColor.whiteColor()
+        topRightMenu.font = UIFont.boldSystemFont(ofSize: 24)
+        topRightMenu.color = UIColor.white
         // Call this after changing layout properties of an already added menu to apply the changes.
         topRightMenu.setup()
         
@@ -80,7 +80,7 @@ class ViewController: UIViewController {
             EliminationMenu.Item(value: "To the heart!", icon: UIImage(named: "heart"))
         ]
         
-        rightMenu.align = .BottomRight
+        rightMenu.align = .bottomRight
         
         // Add menu to layout.
         
@@ -88,8 +88,8 @@ class ViewController: UIViewController {
         view.addSubview(rightMenu)
         
         view.addConstraints([
-            NSLayoutConstraint(item: view, attribute: .Right, relatedBy: .Equal, toItem: rightMenu, attribute: .Right, multiplier: 1, constant: 20),
-            NSLayoutConstraint(item: view, attribute: .Bottom, relatedBy: .Equal, toItem: rightMenu, attribute: .Bottom, multiplier: 1, constant: 20)
+            NSLayoutConstraint(item: view, attribute: .right, relatedBy: .equal, toItem: rightMenu, attribute: .right, multiplier: 1, constant: 20),
+            NSLayoutConstraint(item: view, attribute: .bottom, relatedBy: .equal, toItem: rightMenu, attribute: .bottom, multiplier: 1, constant: 20)
             ])
     }
 

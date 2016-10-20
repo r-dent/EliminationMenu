@@ -41,7 +41,7 @@ menu.items = menuEntries
 Use the convenience method to create a menu and add it as a subview to your view controllers view.
 
 ```swift
-let menu = EliminationMenu.createMenu(withItems: menuEntries, inView: view, aligned: .TopRight, margin: CGPoint(x: 0, y: 20)) { (item) in
+let menu = EliminationMenu.createMenu(withItems: menuEntries, inView: view, aligned: .topRight, margin: CGPoint(x: 0, y: 20)) { (item) in
 	print("Selected value: \(item.value)")
 }
 ```
@@ -57,8 +57,8 @@ See the [example code](EliminationMenu/ViewController.swift) for a better insigh
 You can customize the properties of your menu like this:
 
 ```swift
-menu.font = UIFont.boldSystemFontOfSize(24)
-menu.color = UIColor.whiteColor()
+menu.font = UIFont.boldSystemFont(ofSize: 24)
+menu.color = UIColor.white
 
 menu.setup()
 ```
