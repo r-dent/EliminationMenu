@@ -23,29 +23,32 @@ import UIKit
 
 open class EliminationMenu: UIView {
     
+    /// The alignment to a corner of the parent view.
     public enum Alignment {
         case topLeft, topRight, bottomLeft, bottomRight
     }
     
+    /// A closure that provides information about the selected menu item.
     public typealias SelectionHandler = (_ selectedIdtem:Item) -> Void
+    /// A closure that provides information about an animation that will or did happen.
     public typealias AnimationHandler = (_ opening:Bool, _ animated:Bool) -> Void
     
     /// The alignment of the menu. It defines from which direction the entries will fly in. Defaults to .BottomLeft
-    open var align = Alignment.bottomLeft
+    open var align: Alignment = .bottomLeft
     /// The font used in the menu entry buttons. Defaults to systemFontSize().
-    open var font = UIFont.systemFont(ofSize: UIFont.systemFontSize)
+    open var font: UIFont = .systemFont(ofSize: UIFont.systemFontSize)
     /// The color of the text in menu entries. Defaults to darkTextColor().
-    open var color = UIColor.darkText
+    open var color: UIColor = .darkText
     /// The amount of points, the menu entries are offset from the screen before fading tehm in. Defaults to 50.
-    open var buttonAnimationOffset = CGFloat(50)
+    open var buttonAnimationOffset: CGFloat = 50
     /// The duration in seconds, that the show animation will take. Defaults to 0.4.
-    open var showAnimationDuration = TimeInterval(0.4)
+    open var showAnimationDuration: TimeInterval = 0.4
     /// The duration in seconds, that the selection animation will take. Defaults to 0.25.
-    open var selectAnimationDuration = TimeInterval(0.25)
+    open var selectAnimationDuration: TimeInterval = 0.25
     /// Margin between the entry buttons. Defaults to 0.
-    open var margin = CGFloat(0)
+    open var margin: CGFloat = 0
     /// The height of the menu entry buttons. Defaults to 44.
-    open var buttonHeight = CGFloat(44.0)
+    open var buttonHeight: CGFloat = 44
     
     /// A closure to react on the selection of a menu entry. This will not fire when the selected value has not changed.
     open var selectionHandler: SelectionHandler?
@@ -54,38 +57,29 @@ open class EliminationMenu: UIView {
     /// A closure to react on menu opening/closing. This will be called after the animation has finished.
     open var didAnimateHandler: AnimationHandler?
     
-    var buttons = [UIButton]()
+    var buttons: [UIButton] = []
     
-    fileprivate var _items = [Item]()
     fileprivate var _selectedIndex = 0
-    fileprivate let tagOffset = 10
+    fileprivate let _tagOffset = 10
 
     fileprivate var isLeftAligned: Bool {
-        get {
-            return (align == .bottomLeft) || (align == .topLeft)
-        }
+        return (align == .bottomLeft) || (align == .topLeft)
     }
 
     fileprivate var isBottomAligned: Bool {
-        get {
-            return (align == .bottomLeft) || (align == .bottomRight)
-        }
+        return (align == .bottomLeft) || (align == .bottomRight)
     }
     
     /// The entries of the menu. Setting this will reinitialize the menu.
-    open var items: [Item] {
-        get {return _items}
-        set {
-            _items = newValue
+    open var items: [Item] = [] {
+        didSet {
             setup()
         }
     }
     
     /// The button for the selected item. This is the one that you see when the menu is closed.
     var mainButton: UIButton {
-        get {
-            return getButton(atIndex: _selectedIndex)!
-        }
+        return getButton(atIndex: _selectedIndex)!
     }
     
     /**
@@ -133,24 +127,25 @@ open class EliminationMenu: UIView {
     
     /**
         Initializes the menu interface. Call this when you changed layout properties, to apply them.
+        - parameter index: An optional index of a menu item to show selected after setup
     */
     open func setup(withSelectedIndex index: Int = 0) {
         // Clear existing buttons.
-        if _items.count > 0 {
+        if items.count > 0 {
             for subview in self.subviews {
                 subview.removeFromSuperview()
             }
             buttons = []
         }
         
-        guard _items.count > 0 else {return}
+        guard items.count > 0 else {return}
         
-        let safeIndex = (index < _items.count) ? index : 0
+        let safeIndex = (index < items.count) ? index : 0
         
         // Create first button.
         if buttons.count == 0 {
-            let menuItem = _items[safeIndex]
-            let button = self.createButton(menuItem, tag: tagOffset)
+            let menuItem = items[safeIndex]
+            let button = self.createButton(menuItem, tag: _tagOffset)
             
             button.frame = CGRect(x: 0, y: 0, width: max(button.intrinsicContentSize.width, self.bounds.size.width), height: self.buttonHeight)
             
@@ -164,18 +159,18 @@ open class EliminationMenu: UIView {
     }
     
     func buttonPressed(_ sender: UIView) {
-        let index = sender.tag - tagOffset
+        let index = sender.tag - _tagOffset
         
         if (index == _selectedIndex) {
             show((buttons.count < 2), animated: true)
         }
         else {
-            select(sender.tag - tagOffset, animated: true)
+            select(sender.tag - _tagOffset, animated: true)
         }
     }
     
     func getButton(atIndex index: Int) -> UIButton? {
-        return self.viewWithTag(tagOffset + index) as? UIButton
+        return self.viewWithTag(_tagOffset + index) as? UIButton
     }
     
     func createButton(_ item:Item, tag:Int) -> UIButton {
@@ -208,10 +203,10 @@ open class EliminationMenu: UIView {
             willAnimateHandler?(true, animated)
             
             // Add buttons for unselected items.
-            for titleIndex in 0..<_items.count {
+            for titleIndex in 0..<items.count {
                 if titleIndex != _selectedIndex {
-                    let menuItem = _items[titleIndex]
-                    let button = self.createButton(menuItem, tag: titleIndex + tagOffset)
+                    let menuItem = items[titleIndex]
+                    let button = self.createButton(menuItem, tag: titleIndex + _tagOffset)
                     var buttonY = buttonVerticalSpace * CGFloat(buttonIndex)
                     
                     if !isBottomAligned {
@@ -232,7 +227,7 @@ open class EliminationMenu: UIView {
                 let button = buttons[i]
                 button.frame = CGRect(origin: button.frame.origin, size: CGSize(width: maxWidth, height: button.frame.size.height))
                 
-                if button.tag != _selectedIndex + tagOffset {
+                if button.tag != _selectedIndex + _tagOffset {
                     var xOffset = buttonAnimationOffset * CGFloat(i)
                     
                     if isBottomAligned {
@@ -270,7 +265,7 @@ open class EliminationMenu: UIView {
     
     func select(_ index: Int?, animated: Bool) {
         let selectedIndex: Int = index ?? 0
-        let menuItem = _items[selectedIndex]
+        let menuItem = items[selectedIndex]
         
         if buttons.count > 1 {
             let selectionDidChange = _selectedIndex != selectedIndex
@@ -340,7 +335,7 @@ open class EliminationMenu: UIView {
                 origin: mainButton.frame.origin,
                 size: CGSize(width: mainButton.intrinsicContentSize.width, height: self.buttonHeight)
             )
-            mainButton.tag = selectedIndex + tagOffset
+            mainButton.tag = selectedIndex + _tagOffset
             _selectedIndex = selectedIndex
             
             didAnimateHandler?(true, animated)
@@ -354,7 +349,8 @@ open class EliminationMenu: UIView {
             }
         }
     }
-    
+  
+    /// Provides size of the view depending on the frames of shown buttons.
     override open var intrinsicContentSize : CGSize {
         if buttons.count > 0 {
             var width: CGFloat = 0
@@ -372,35 +368,5 @@ open class EliminationMenu: UIView {
         
         return CGSize(width: 0, height: 0)
     }
-    
-    // MARK: - Class: Item
-    
-    /**
-        An item representing a menu entry in EliminationMenu.
-    */
-    open class Item {
-        /// The title that will be shown in the menu.
-        open var title: String = ""
-        /// The icon that will be shown in the menu.
-        open var icon: UIImage?
-        /// The object that you will receive in the selectionHandler.
-        open var value: Any!
-        /// These insets will also set titleInsets and contentInsets of the items entry button.
-        open var iconInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
-        
-        init(value:Any, title: String = "", icon: UIImage? = nil) {
-            self.title = title
-            self.value = value
-            self.icon = icon
-        }
-    }
-
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
-    }
-    */
 
 }
