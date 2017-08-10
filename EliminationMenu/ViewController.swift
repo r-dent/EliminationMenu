@@ -23,15 +23,19 @@ class ViewController: UIViewController {
         eliminationMenu.font = UIFont.boldSystemFont(ofSize: 24)
         eliminationMenu.color = UIColor.white
         
-        eliminationMenu.selectionHandler = {item in
-            self.infoLabel.text = "Selected item:\n\"\(item.title)\"\n\nThe value is:\n\"\(item.value)\""
+        eliminationMenu.selectionHandler = { item in
+            self.infoLabel.text = "Selected item:\n\"\(item.title)\""
+            if let value = item.value {
+                self.infoLabel.text?.append( "\n\nThe value is:\n\"\(value)\"" )
+            }
         }
         
         eliminationMenu.items = [
             EliminationMenu.Item(value: "SomeValue", title: "First"),
-            EliminationMenu.Item(value: "SomeOtherValue", title: "Second"),
+            "SomeOtherValue",
             EliminationMenu.Item(value: "This could also be an Image", title: "Third"),
-            EliminationMenu.Item(value: "...or a view", title: "Fourth")
+            EliminationMenu.Item(value: "...or a view", title: "Fourth"),
+            "Just a String"
         ]
       
         /**
@@ -69,7 +73,10 @@ class ViewController: UIViewController {
         let rightMenu = EliminationMenu()
         
         rightMenu.selectionHandler = {item in
-            self.infoLabel.text = "Selected item:\n\"\(item.title)\"\n\nThe value is:\n\"\(item.value)\""
+            self.infoLabel.text = "Selected item:\n\"\(item.title)\""
+            if let value = item.value {
+                self.infoLabel.text?.append( "\n\nThe value is:\n\"\(value)\"" )
+            }
         }
         
         rightMenu.items = [

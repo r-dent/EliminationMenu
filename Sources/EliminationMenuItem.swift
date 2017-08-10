@@ -21,20 +21,41 @@
 
 import UIKit
 
+/// Conforming objects can be used as menu items in an `EliminationMenu`.
+public protocol EliminationMenuItem {
+    /// The title that will be shown in the menu.
+    var title: String { get }
+    /// The icon that will be shown in the menu.
+    var icon: UIImage? { get }
+    /// These insets will also set titleInsets and contentInsets of the items entry button.
+    var iconInsets: UIEdgeInsets { get }
+    /// The object that you will receive in the selectionHandler.
+    var value: Any? { get }
+}
+
+/// This adds default implementations for optional methods of `EliminationMenuItem`.
+public extension EliminationMenuItem {
+    /// Default implementation of icon to make it optional.
+    var icon: UIImage? { return nil }
+    /// Default implementation of iconInsets to make it optional.
+    var iconInsets: UIEdgeInsets {
+        return UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
+    }
+}
+
+/// Adds a default `Item` to use in `EleminationMenu`.
 public extension EliminationMenu {
     
     // MARK: - Class: Item
     
-    /**
-     An item representing a menu entry in EliminationMenu.
-     */
-    public class Item {
+    // An item representing a menu entry in EliminationMenu.
+    public class Item: EliminationMenuItem {
         /// The title that will be shown in the menu.
         open var title: String = ""
         /// The icon that will be shown in the menu.
         open var icon: UIImage?
         /// The object that you will receive in the selectionHandler.
-        open var value: Any!
+        open var value: Any?
         /// These insets will also set titleInsets and contentInsets of the items entry button.
         open var iconInsets: UIEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         
@@ -50,4 +71,15 @@ public extension EliminationMenu {
         }
     }
     
+}
+
+/// Add capability to use `String` as item in `EleminationMenu`.
+extension String: EliminationMenuItem {
+    public var title: String {
+        return self
+    }
+    
+    public var value: Any? {
+        return self
+    }
 }

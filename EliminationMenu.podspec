@@ -1,8 +1,8 @@
 Pod::Spec.new do |s|
   s.name         = 'EliminationMenu'
-  s.version      = '0.2.0'
+  s.version      = '1.0.0'
 
-  s.summary      = 'Some kind of menu that eliminates all values which were not selected.'
+  s.summary      = 'A menu that eliminates all values which were not selected.'
   s.author       = { 'Roman Gille' => 'developer@romangille.com' }
   s.homepage     = 'https://github.com/r-dent/EliminationMenu'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }

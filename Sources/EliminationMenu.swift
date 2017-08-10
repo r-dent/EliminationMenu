@@ -21,6 +21,7 @@
 
 import UIKit
 
+/// A menu that eliminates all values which were not selected.
 open class EliminationMenu: UIView {
     
     /// The alignment to a corner of the parent view.
@@ -29,9 +30,9 @@ open class EliminationMenu: UIView {
     }
     
     /// A closure that provides information about the selected menu item.
-    public typealias SelectionHandler = (_ selectedIdtem:Item) -> Void
+    public typealias SelectionHandler = (_ selectedIdtem: EliminationMenuItem) -> Void
     /// A closure that provides information about an animation that will or did happen.
-    public typealias AnimationHandler = (_ opening:Bool, _ animated:Bool) -> Void
+    public typealias AnimationHandler = (_ opening: Bool, _ animated: Bool) -> Void
     
     /// The alignment of the menu. It defines from which direction the entries will fly in. Defaults to .BottomLeft
     open var align: Alignment = .bottomLeft
@@ -71,7 +72,7 @@ open class EliminationMenu: UIView {
     }
     
     /// The entries of the menu. Setting this will reinitialize the menu.
-    open var items: [Item] = [] {
+    open var items: [EliminationMenuItem] = [] {
         didSet {
             setup()
         }
@@ -90,7 +91,7 @@ open class EliminationMenu: UIView {
         - parameter margin: The distance the menu will have to the edges of its superview.
         - parameter selection: The closure that will be called upon selection of a menu item.
     */
-    open class func createMenu(withItems items: [Item], inView view: UIView, aligned: Alignment, margin: CGPoint = CGPoint(x: 0, y: 0), selection: SelectionHandler? = nil) -> EliminationMenu {
+    open class func createMenu(withItems items: [EliminationMenuItem], inView view: UIView, aligned: Alignment, margin: CGPoint = CGPoint(x: 0, y: 0), selection: SelectionHandler? = nil) -> EliminationMenu {
         let menu = EliminationMenu()
         menu.selectionHandler = selection
         menu.align = aligned
@@ -158,7 +159,7 @@ open class EliminationMenu: UIView {
         _selectedIndex = safeIndex
     }
     
-    func buttonPressed(_ sender: UIView) {
+    @objc func buttonPressed(_ sender: UIView) {
         let index = sender.tag - _tagOffset
         
         if (index == _selectedIndex) {
@@ -173,7 +174,7 @@ open class EliminationMenu: UIView {
         return self.viewWithTag(_tagOffset + index) as? UIButton
     }
     
-    func createButton(_ item:Item, tag:Int) -> UIButton {
+    func createButton(_ item:EliminationMenuItem, tag:Int) -> UIButton {
         let button = UIButton()
         
         button.setTitle(item.title, for: UIControlState())

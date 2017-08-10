@@ -12,7 +12,7 @@ Some kind of menu that eliminates all values which were not selected.
 
 ## Installation
 
-Just drag the EliminationMenu.swift into your project.
+Just drag the Folder `Sources` into your project.
 
 Or if you´re using CocoaPods, add this to your Podfile: 
 
@@ -24,17 +24,21 @@ You can create an EliminationMenu view in Interface Builder or in code.
             
 ### Create entries
     
-To set up the entries, create an array of `EliminationMenu.Item`s and set it to the `items` property of the menu object.
+To set up the entries, create an array of instances conforming to `EliminationMenuItem` and set it to the `items` property of the menu object.
 
 ```swift
 let menuEntries = [
     EliminationMenu.Item(value: "SomeValue", title: "First"),
     EliminationMenu.Item(value: "SomeOtherValue", title: "Second"),
     EliminationMenu.Item(value: UIImage(named: "filename"), title: "Third"), // You can use values of any kind.
-    EliminationMenu.Item(value: "...or a view", title: "Fourth")
+    EliminationMenu.Item(value: "...or a view", title: "Fourth"),
+    "Just a String"
 ]
 menu.items = menuEntries
 ```
+
+*Hint*: The default type `EliminationMenu.Item` can be used to populate the menu. But you can also make your own types conform to `EliminationMenuItem` and use them directly.
+`String` already conforms to it. So you can use Strings as menu items.
     
 ### Create Menu
 
