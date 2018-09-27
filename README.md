@@ -7,7 +7,7 @@
 Some kind of menu that eliminates all values which were not selected.
 
 <p align="center" >
-![Screenshot](/Resources/EliminationMenu.gif?raw=true "Screenshot")
+<img src="Resources/EliminationMenu.gif?raw=true" />
 <p>
 
 ## Installation
