@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'EliminationMenu'
-  s.version      = '1.0.1'
+  s.version      = '1.0.2'
   s.swift_version = '4.2'
 
   s.summary      = 'A menu that eliminates all values which were not selected.'
@@ -8,7 +8,7 @@ Pod::Spec.new do |s|
   s.homepage     = 'https://github.com/r-dent/EliminationMenu'
   s.license      = { :type => 'MIT', :file => 'LICENSE' }
 
-  s.source       = { :git => 'https://github.com/r-dent/EliminationMenu.git', :tag => "v#{s.version}" }
+  s.source       = { :git => 'https://github.com/r-dent/EliminationMenu.git', :tag => "#{s.version}" }
   s.source_files = 'Sources/*.swift'
 
   s.requires_arc = true

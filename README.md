@@ -1,22 +1,35 @@
 # EliminationMenu
-[![CocoaPods](https://img.shields.io/cocoapods/v/EliminationMenu.svg)](http://cocoadocs.org/docsets/EliminationMenu)
-[![Platform](https://img.shields.io/cocoapods/p/EliminationMenu.svg)](http://cocoadocs.org/docsets/EliminationMenu)
-[![CocoaPods](https://img.shields.io/cocoapods/l/EliminationMenu.svg)](LICENSE)
 [![Travis](https://img.shields.io/travis/r-dent/EliminationMenu.svg)](https://travis-ci.org/r-dent/EliminationMenu)
+[![CocoaPods](https://img.shields.io/cocoapods/v/EliminationMenu.svg)](http://cocoadocs.org/docsets/EliminationMenu)
+[![CocoaPods](https://img.shields.io/cocoapods/l/EliminationMenu.svg)](LICENSE)
+[![Platform](https://img.shields.io/cocoapods/p/EliminationMenu.svg)](http://cocoadocs.org/docsets/EliminationMenu)
 
 Some kind of menu that eliminates all values which were not selected.
 
 <p align="center" >
-<img src="https://raw.githubusercontent.com/r-dent/EliminationMenu/master/Resources/EliminationMenu.gif" />
-<p>
+    <img src="https://raw.githubusercontent.com/r-dent/EliminationMenu/master/Resources/EliminationMenu.gif" />
+</p>
 
 ## Installation
 
 Just drag the Folder `Sources` into your project.
 
-Or if you´re using CocoaPods, add this to your Podfile: 
+### Cocoapods
+
+If you´re using [CocoaPods](https://cocoapods.org), add this to your Podfile: 
 
 	pod EliminationMenu
+
+### Swift Package Manager
+
+To add EliminationMenu to a [Swift Package Manager](https://swift.org/package-manager/) based project, add the following:
+
+```swift
+.package(url: "https://github.com/r-dent/EliminationMenu", from: "1.0.2")
+```
+
+to the `dependencies` value of your `Package.swift`.
+
 	
 ## Usage
 
