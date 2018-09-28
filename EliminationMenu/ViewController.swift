@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import EliminationMenu
 
 class ViewController: UIViewController {
     
@@ -20,8 +21,8 @@ class ViewController: UIViewController {
             Set up the menu created in interface builder.
         */
         
-        eliminationMenu.font = UIFont.boldSystemFont(ofSize: 24)
-        eliminationMenu.color = UIColor.white
+        eliminationMenu.font = .boldSystemFont(ofSize: 24)
+        eliminationMenu.color = .white
         
         eliminationMenu.selectionHandler = { item in
             self.infoLabel.text = "Selected item:\n\"\(item.title)\""
@@ -60,8 +61,8 @@ class ViewController: UIViewController {
         }
         
         // A little customization.
-        topRightMenu.font = UIFont.boldSystemFont(ofSize: 24)
-        topRightMenu.color = UIColor.white
+        topRightMenu.font = .boldSystemFont(ofSize: 24)
+        topRightMenu.color = .white
         // Call this after changing layout properties of an already added menu to apply the changes.
         topRightMenu.setup()
         

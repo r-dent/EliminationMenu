@@ -1,1 +1,3 @@
 EliminationMenu.xcodeproj/xcuserdata
+*xcuserdatad*
+.DS_Store

@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "30865F76215E139D00801C80"
-               BuildableName = "libEliminationMenu.a"
-               BlueprintName = "EliminationMenu"
+               BlueprintIdentifier = "302488D01CBF811D002343AE"
+               BuildableName = "Example App.app"
+               BlueprintName = "Example App"
                ReferencedContainer = "container:EliminationMenu.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,7 +28,26 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "30B2D6BE1D79E74F00C54A61"
+               BuildableName = "Tests.xctest"
+               BlueprintName = "Tests"
+               ReferencedContainer = "container:EliminationMenu.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "302488D01CBF811D002343AE"
+            BuildableName = "Example App.app"
+            BlueprintName = "Example App"
+            ReferencedContainer = "container:EliminationMenu.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
@@ -42,15 +61,16 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30865F76215E139D00801C80"
-            BuildableName = "libEliminationMenu.a"
-            BlueprintName = "EliminationMenu"
+            BlueprintIdentifier = "302488D01CBF811D002343AE"
+            BuildableName = "Example App.app"
+            BlueprintName = "Example App"
             ReferencedContainer = "container:EliminationMenu.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -60,15 +80,16 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
+      <BuildableProductRunnable
+         runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "30865F76215E139D00801C80"
-            BuildableName = "libEliminationMenu.a"
-            BlueprintName = "EliminationMenu"
+            BlueprintIdentifier = "302488D01CBF811D002343AE"
+            BuildableName = "Example App.app"
+            BlueprintName = "Example App"
             ReferencedContainer = "container:EliminationMenu.xcodeproj">
          </BuildableReference>
-      </MacroExpansion>
+      </BuildableProductRunnable>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

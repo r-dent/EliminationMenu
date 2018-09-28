@@ -177,12 +177,12 @@ open class EliminationMenu: UIView {
     func createButton(_ item:EliminationMenuItem, tag:Int) -> UIButton {
         let button = UIButton()
         
-        button.setTitle(item.title, for: UIControlState())
-        button.setImage(item.icon, for: UIControlState())
+        button.setTitle(item.title, for: .normal)
+        button.setImage(item.icon, for: .normal)
         button.contentHorizontalAlignment = (isLeftAligned) ? .left : .right
         button.tag = tag
         button.titleLabel?.font = self.font
-        button.setTitleColor(color, for: UIControlState())
+        button.setTitleColor(color, for: .normal)
         button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
         
         setIconInsets(item.iconInsets, button: button)
@@ -251,7 +251,7 @@ open class EliminationMenu: UIView {
             self.invalidateIntrinsicContentSize()
             
             // Slide in buttons.
-            UIView.animate(withDuration: showAnimationDuration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3, options: UIViewAnimationOptions.curveEaseIn, animations: { () -> Void in
+            UIView.animate(withDuration: showAnimationDuration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3, options: UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
                 for button in self.buttons {
                     button.transform = CGAffineTransform.identity
                 }
@@ -327,8 +327,8 @@ open class EliminationMenu: UIView {
             selectionHandler?(menuItem)
             willAnimateHandler?(false, animated)
             
-            mainButton.setTitle(menuItem.title, for: UIControlState())
-            mainButton.setImage(menuItem.icon, for: UIControlState())
+            mainButton.setTitle(menuItem.title, for: .normal)
+            mainButton.setImage(menuItem.icon, for: .normal)
             
             setIconInsets(menuItem.iconInsets, button: mainButton)
             
