@@ -251,7 +251,7 @@ open class EliminationMenu: UIView {
             self.invalidateIntrinsicContentSize()
             
             // Slide in buttons.
-            UIView.animate(withDuration: showAnimationDuration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3, options: UIView.AnimationOptions.curveEaseIn, animations: { () -> Void in
+            UIView.animate(withDuration: showAnimationDuration, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.3, options: .curveEaseIn, animations: { () -> Void in
                 for button in self.buttons {
                     button.transform = CGAffineTransform.identity
                 }

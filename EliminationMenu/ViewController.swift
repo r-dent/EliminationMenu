@@ -33,10 +33,12 @@ class ViewController: UIViewController {
         
         eliminationMenu.items = [
             EliminationMenu.Item(value: "SomeValue", title: "First"),
-            "SomeOtherValue",
+            // String already conforms to EliminationMenuItem an can be used out of the box.
+            "Just a String",
             EliminationMenu.Item(value: "This could also be an Image", title: "Third"),
             EliminationMenu.Item(value: "...or a view", title: "Fourth"),
-            "Just a String"
+            // Add an Element of MyCustomType which conforms to EliminationMenuItem.
+            MyCustomType(customProperty: true, someOtherProperty: 5)
         ]
       
         /**
@@ -51,7 +53,12 @@ class ViewController: UIViewController {
             EliminationMenu.Item(value: UIColor.green, title: "Green")
         ]
       
-        let topRightMenu = EliminationMenu.createMenu(withItems: topRightMenuItems, inView: view, aligned: .topRight, margin: CGPoint(x: 20, y: 20)) { (item) in
+        let topRightMenu = EliminationMenu.createMenu(
+            withItems: topRightMenuItems,
+            inView: view,
+            aligned: .topRight,
+            margin: CGPoint(x: 20, y: 20)
+        ) { (item) in
             // Animate the backgroundColor of the view.
             if let color = item.value as? UIColor {
                 UIView.animate(withDuration: 0.5, animations: {

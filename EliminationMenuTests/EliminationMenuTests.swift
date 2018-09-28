@@ -7,6 +7,7 @@
 //
 
 import XCTest
+@testable import EliminationMenu
 
 class EliminationMenuTests: XCTestCase {
     

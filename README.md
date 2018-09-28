@@ -32,13 +32,14 @@ let menuEntries = [
     EliminationMenu.Item(value: "SomeOtherValue", title: "Second"),
     EliminationMenu.Item(value: UIImage(named: "filename"), title: "Third"), // You can use values of any kind.
     EliminationMenu.Item(value: "...or a view", title: "Fourth"),
-    "Just a String"
+    "Just a String",
+    MyCustomType(customProperty: true, someOtherProperty: 5)
 ]
 menu.items = menuEntries
 ```
 
 *Hint*: The default type `EliminationMenu.Item` can be used to populate the menu. But you can also make your own types conform to `EliminationMenuItem` and use them directly.
-`String` already conforms to it. So you can use Strings as menu items.
+`String` already conforms to it. So you can use Strings as menu items. See the example project for an overview.
     
 ### Create Menu
 

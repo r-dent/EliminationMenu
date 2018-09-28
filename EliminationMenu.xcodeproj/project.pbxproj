@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3071A644215E17440058DF42 /* EliminationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3071A643215E17440058DF42 /* EliminationMenu.swift */; };
+		3071A646215E21310058DF42 /* MyCostomType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3071A645215E21310058DF42 /* MyCostomType.swift */; };
 		30865F7F215E13A800801C80 /* EliminationMenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30E77F631DCDA34E00A2A230 /* EliminationMenuItem.swift */; };
 		30865F81215E144300801C80 /* libEliminationMenu.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 30865F77215E139D00801C80 /* libEliminationMenu.a */; };
 		30B2D6C21D79E74F00C54A61 /* EliminationMenuTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 30B2D6C11D79E74F00C54A61 /* EliminationMenuTests.swift */; };
@@ -43,6 +44,7 @@
 /* Begin PBXFileReference section */
 		302488D11CBF811D002343AE /* Example App.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Example App.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		3071A643215E17440058DF42 /* EliminationMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EliminationMenu.swift; sourceTree = "<group>"; };
+		3071A645215E21310058DF42 /* MyCostomType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyCostomType.swift; sourceTree = "<group>"; };
 		30865F77215E139D00801C80 /* libEliminationMenu.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libEliminationMenu.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B2D6BF1D79E74F00C54A61 /* Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		30B2D6C11D79E74F00C54A61 /* EliminationMenuTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EliminationMenuTests.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 			children = (
 				30C53CEC1CC2849B00121273 /* AppDelegate.swift */,
 				30C53CF31CC2849B00121273 /* ViewController.swift */,
+				3071A645215E21310058DF42 /* MyCostomType.swift */,
 				30C53CF01CC2849B00121273 /* Main.storyboard */,
 				30C53CED1CC2849B00121273 /* Assets.xcassets */,
 				30C53CEE1CC2849B00121273 /* LaunchScreen.storyboard */,
@@ -270,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				30C53CF91CC2849B00121273 /* ViewController.swift in Sources */,
+				3071A646215E21310058DF42 /* MyCostomType.swift in Sources */,
 				30C53CF41CC2849B00121273 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

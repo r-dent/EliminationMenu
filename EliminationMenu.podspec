@@ -1,6 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'EliminationMenu'
   s.version      = '1.0.1'
+  s.swift_version = '4.2'
 
   s.summary      = 'A menu that eliminates all values which were not selected.'
   s.author       = { 'Roman Gille' => 'developer@romangille.com' }
