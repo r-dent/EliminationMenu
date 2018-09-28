@@ -7,7 +7,7 @@
 Some kind of menu that eliminates all values which were not selected.
 
 <p align="center" >
-<img src="Resources/EliminationMenu.gif?raw=true" />
+<img src="https://raw.githubusercontent.com/r-dent/EliminationMenu/master/Resources/EliminationMenu.gif" />
 <p>
 
 ## Installation

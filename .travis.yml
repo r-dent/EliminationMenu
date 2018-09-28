@@ -1,8 +1,8 @@
 language: objective-c
 
-osx_image: xcode9
+osx_image: xcode10
 xcode_workspace: EliminationMenu.xcodeproj
 xcode_scheme: "Example App"
-xcode_sdk: iphonesimulator12.0
+xcode_sdk: iphonesimulator11.0
 
 script: xcodebuild build test -project EliminationMenu.xcodeproj -scheme "Example App" -destination "platform=iOS Simulator,name=iPhone 7" -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO
